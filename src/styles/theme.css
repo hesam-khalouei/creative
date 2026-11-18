@@ -1,0 +1,158 @@
+:root {
+  /* Brand colors */
+  --color-primary: #00a693;
+  --color-primary-light: #1fe2ba;
+  --color-primary-dark: #008c7c;
+
+  --color-secondary: #ff8a34;
+  --color-secondary-light: #ffb171;
+  --color-secondary-dark: #ef4c07;
+
+  /* Backgrounds */
+  --color-bg: #002b28;
+  --color-bg-soft: #073b36;
+  --color-bg-elevated: #0c4944;
+
+  /* Text */
+  --color-text: #f5fffc;
+  --color-text-secondary: #b5d1ca;
+  --color-text-muted: #789d95;
+
+  /* Borders */
+  --color-border: rgba(200, 255, 240, 0.12);
+  --color-border-strong: rgba(200, 255, 240, 0.22);
+
+  /* Effects */
+  --shadow-card: 0 20px 60px rgba(0, 20, 18, 0.25);
+
+  --shadow-glow: 0 0 50px rgba(0, 166, 147, 0.16);
+
+  /* Radius */
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 28px;
+  --radius-xl: 36px;
+
+  /* Layout */
+  --slide-padding-x: clamp(24px, 5vw, 100px);
+  --slide-padding-y: clamp(24px, 4vh, 64px);
+
+  /* Motion */
+  --transition-fast: 180ms ease;
+  --transition-normal: 320ms ease;
+  --transition-slow: 600ms ease;
+}
+
+/* Base reset */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--color-bg);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+
+  background: var(--color-bg);
+  color: var(--color-text);
+
+  direction: rtl;
+  font-family: 'IranYekanX', sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Selection */
+::selection {
+  color: #002b28;
+  background: #92fee2;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary-dark);
+  border-radius: 20px;
+}
+
+/* Shared typography */
+h1,
+h2,
+h3,
+h4,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+p {
+  line-height: 1.9;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+/* Focus accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 4px;
+}
+
+/* Numeric content */
+.numeric {
+  direction: ltr;
+  unicode-bidi: isolate;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Shared utility classes */
+.text-gradient {
+  background: linear-gradient(
+    110deg,
+    var(--color-primary-light),
+    var(--color-primary),
+    var(--color-secondary)
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.glass-panel {
+  background: rgba(12, 73, 68, 0.55);
+  border: 1px solid var(--color-border);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.surface-card {
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}

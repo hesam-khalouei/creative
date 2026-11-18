@@ -1,0 +1,277 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================
+   1. FONT SYSTEM
+========================================= */
+
+@font-face {
+  font-family: 'IranYekanX';
+  src: url('/fonts/IranYekanX/IranYekanX-Variable.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+/* =========================================
+   2. DESIGN TOKENS
+========================================= */
+
+:root {
+  /* Brand */
+  --color-primary: #00a693;
+  --color-primary-dark: #008c7c;
+  --color-primary-light: #effef9;
+
+  --color-secondary: #ff8a34;
+  --color-secondary-light: #fff6ed;
+
+  /* Background */
+  --color-background: #fafbf9;
+  --color-surface: #ffffff;
+  --color-surface-soft: #f4f7f5;
+
+  /* Typography */
+  --color-heading: #172321;
+  --color-body: #485852;
+  --color-muted: #84958f;
+
+  /* Border */
+  --color-border: #e3eae6;
+
+  /* Layout */
+  --slide-ratio: 16 / 9;
+  --slide-padding: clamp(24px, 4vw, 76px);
+
+  /* Radius */
+  --radius-card: 20px;
+  --radius-large: 28px;
+
+  /* Shadows */
+  --shadow-card: 0 16px 50px rgba(23, 35, 33, 0.07);
+
+  --shadow-soft: 0 8px 30px rgba(23, 35, 33, 0.05);
+}
+
+/* =========================================
+   3. RESET
+========================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  direction: rtl;
+  font-family: 'IranYekanX', Tahoma, sans-serif;
+  font-synthesis: none;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+
+  background: var(--color-background);
+  color: var(--color-heading);
+
+  font-family: 'IranYekanX', Tahoma, sans-serif;
+  font-weight: 400;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  font-feature-settings:
+    'ss01' 1,
+    'ss02' 1;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* =========================================
+   4. TYPOGRAPHY
+========================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 800;
+  color: var(--color-heading);
+}
+
+p {
+  color: var(--color-body);
+  line-height: 1.9;
+}
+
+.font-numbers {
+  font-feature-settings:
+    'ss01' 1,
+    'ss02' 1;
+  font-variant-numeric: tabular-nums;
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+/* =========================================
+   5. SELECTION
+========================================= */
+
+::selection {
+  background: rgba(0, 166, 147, 0.18);
+  color: var(--color-heading);
+}
+
+/* =========================================
+   6. SCROLLBAR
+========================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd6d0;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+/* =========================================
+   7. PRESENTATION UTILITIES
+========================================= */
+
+.presentation-shell {
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background: var(--color-background);
+}
+
+.slide {
+  position: relative;
+  width: 100%;
+  aspect-ratio: var(--slide-ratio);
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+.slide-inner {
+  width: 100%;
+  height: 100%;
+  padding: var(--slide-padding);
+}
+
+.text-gradient {
+  background: linear-gradient(120deg, var(--color-primary), #53cbb6);
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.accent-line {
+  width: 56px;
+  height: 5px;
+  border-radius: 10px;
+  background: var(--color-primary);
+}
+
+.glass-surface {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: var(--shadow-soft);
+}
+
+.card-surface {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-soft);
+}
+
+/* =========================================
+   8. RESPONSIVE
+========================================= */
+
+@media (max-width: 1024px) {
+  .slide {
+    aspect-ratio: auto;
+    min-height: 100vh;
+  }
+
+  .slide-inner {
+    min-height: 100vh;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --slide-padding: 24px;
+    --radius-card: 16px;
+  }
+
+  .slide {
+    min-height: 100svh;
+  }
+
+  .slide-inner {
+    min-height: 100svh;
+  }
+}
+
+/* =========================================
+   9. MOTION ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
