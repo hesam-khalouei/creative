@@ -11,7 +11,7 @@ function SlideContainer({
 }) {
   return (
     <section
-      className={`slide ${className}`}
+      className={`slide slide--${slideNumber} ${className}`}
       aria-label={`اسلاید ${slideNumber} از ${totalSlides}`}
       aria-roledescription="اسلاید"
     >

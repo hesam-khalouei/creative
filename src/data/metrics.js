@@ -41,9 +41,9 @@ export const requestTypes = [
   { name: 'گرافیک اپ و وب‌سایت', value: 75 },
   { name: 'تصویرسازی', value: 69 },
   { name: 'طراحی کارت', value: 53 },
-  { name: 'طراحی یوزرفلو', value: 53 },
+  { name: 'طراحی یوزرفلو اپ و وب‌سایت', value: 53 },
   { name: 'طراحی لندینگ پیج', value: 35 },
-  { name: 'پوستر و جلد', value: 28 },
+  { name: 'طراحی پوستر و جلد', value: 28 },
   { name: 'موشن گرافیک', value: 22 },
   { name: 'اوراق اداری', value: 19 },
   { name: 'طراحی لاتی', value: 15 },
@@ -53,7 +53,15 @@ export const requestTypes = [
   { name: 'طراحی دیزاین سیستم', value: 10 },
   { name: 'صفحه‌آرایی', value: 10 },
   { name: 'ایده‌پردازی', value: 9 },
-  { name: 'سایر خدمات طراحی', value: 0 },
+  { name: 'طراحی آیکون و پیکتوگرام', value: 7 },
+  { name: 'طراحی بسته‌بندی', value: 6 },
+  { name: 'طراحی پروتوتایپ', value: 5 },
+  { name: 'گایدلاین هویت بصری', value: 4 },
+  { name: 'آگهی تبلیغاتی', value: 4 },
+  { name: 'تصاویر متحرک', value: 3 },
+  { name: 'طراحی یوآی کیت', value: 2 },
+  { name: 'طراحی برند بوک', value: 1 },
+  { name: 'طراحی داخلی محیط سازمان', value: 1 },
 ];
 
 export const teamWorkload = [
