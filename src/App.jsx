@@ -1,91 +1,43 @@
 import React from 'react';
 
 import usePresentation from './hooks/usePresentation';
-import SlideContainer from './components/layout/SlideContainer';
+
 import ProgressBar from './components/navigation/ProgressBar';
 import SlideNavigation from './components/navigation/SlideNavigation';
 
+import Slide01Cover from './slides/Slide01Cover';
+import Slide02ExecutiveSummary from './slides/Slide02ExecutiveSummary';
+import Slide03TheScale from './slides/Slide03TheScale';
+import Slide04BusinessReach from './slides/Slide04BusinessReach';
+import Slide05CreativeSpectrum from './slides/Slide05CreativeSpectrum';
+import Slide06Performance from './slides/Slide06Performance';
+import Slide07TeamContribution from './slides/Slide07TeamContribution';
+import Slide08BeyondExecution from './slides/Slide08BeyondExecution';
+import Slide09OrganizationalPosition from './slides/Slide09OrganizationalPosition';
+import Slide10BusinessCase from './slides/Slide10BusinessCase';
+import Slide11CompensationReview from './slides/Slide11CompensationReview';
+import Slide12TheDecision from './slides/Slide12TheDecision';
+
+const slides = [
+  { id: 'cover', component: Slide01Cover },
+  { id: 'introduction', component: Slide02ExecutiveSummary },
+  { id: 'scale', component: Slide03TheScale },
+  { id: 'business-reach', component: Slide04BusinessReach },
+  { id: 'creative-spectrum', component: Slide05CreativeSpectrum },
+  { id: 'performance', component: Slide06Performance },
+  { id: 'team-contribution', component: Slide07TeamContribution },
+  { id: 'beyond-execution', component: Slide08BeyondExecution },
+  { id: 'organizational-position', component: Slide09OrganizationalPosition },
+  { id: 'business-case', component: Slide10BusinessCase },
+  { id: 'compensation-review', component: Slide11CompensationReview },
+  { id: 'decision', component: Slide12TheDecision },
+];
+
 function App() {
-  const slides = [
-    {
-      id: 'cover',
-      eyebrow: 'گزارش عملکرد و جایگاه سازمانی',
-      title: (
-        <>
-          تیم خلاقیت
-          <br />
-          <span className="text-gradient">و طراحی محصول</span>
-        </>
-      ),
-      description:
-        'از اجرای درخواست‌ها تا خلق ارزش برای کسب‌وکار؛ روایتی از عملکرد، دامنه اثرگذاری و نقش تیم خلاقیت و طراحی محصول.',
-      content: (
-        <div className="mt-10 flex items-center gap-4">
-          <div className="w-12 h-[3px] bg-secondary rounded-full" />
-          <span className="text-sm text-white/50">
-            فروردین ۱۴۰۴ — آبان ۱۴۰۵
-          </span>
-        </div>
-      ),
-    },
-
-    {
-      id: 'introduction',
-      eyebrow: '01 / EXECUTIVE SUMMARY',
-      title: 'خلاقیت، فراتر از یک واحد اجرایی',
-      description:
-        'تیم خلاقیت و طراحی محصول، یک ظرفیت تخصصی میان‌سازمانی است که تجربه محصول، هویت بصری و ارتباطات برند را به هم متصل می‌کند.',
-      content: (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-8">
-          <div className="surface-card p-6">
-            <div className="metric-value">856</div>
-            <div className="metric-label">درخواست تخصیص‌یافته به اعضای تیم</div>
-          </div>
-
-          <div className="surface-card p-6">
-            <div className="metric-value">11</div>
-            <div className="metric-label">واحد سازمانی دریافت‌کننده خدمات</div>
-          </div>
-        </div>
-      ),
-    },
-
-    {
-      id: 'team',
-      eyebrow: '02 / TEAM',
-      title: 'متخصصانی با مسئولیت‌های مکمل',
-      description:
-        'ترکیبی از مدیریت خلاقیت، طراحی محصول، طراحی گرافیک و موشن گرافیک.',
-      content: (
-        <div className="surface-card p-6 mt-8">
-          <p className="text-white/70">تیم هشت‌نفره خلاقیت و طراحی محصول</p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-5">
-            {[
-              'صدرا بهبودی',
-              'علیرضا خطیبی',
-              'امیرحسام خالویی',
-              'مینا شافعی',
-              'افسانه میررستمی',
-              'امیرحسین فراهانی',
-              'مهران سلطان محمدی',
-              'پارسا نوایی',
-            ].map((name) => (
-              <div
-                key={name}
-                className="bg-white/5 border border-white/10 rounded-xl p-4 text-sm text-center"
-              >
-                {name}
-              </div>
-            ))}
-          </div>
-        </div>
-      ),
-    },
-  ];
-
   const presentation = usePresentation(slides.length);
 
   const current = slides[presentation.currentSlide];
+  const CurrentSlide = current.component;
 
   return (
     <main className="presentation">
@@ -94,22 +46,13 @@ function App() {
       <div className="slide-glow slide-glow-primary" />
       <div className="slide-glow slide-glow-secondary" />
 
-      <div className="slide-viewport">
-        <SlideContainer
-          key={current.id}
-          slideNumber={presentation.currentSlide + 1}
-          totalSlides={slides.length}
-          eyebrow={current.eyebrow}
-          title={current.title}
-          description={current.description}
-        >
-          {current.content}
-        </SlideContainer>
+      <div className="slide-viewport" key={current.id}>
+        <CurrentSlide />
       </div>
 
       <SlideNavigation
         currentSlide={presentation.currentSlide}
-        totalSlides={presentation.totalSlides}
+        totalSlides={slides.length}
         nextSlide={presentation.nextSlide}
         previousSlide={presentation.previousSlide}
         isFirstSlide={presentation.isFirstSlide}
