@@ -1,94 +1,136 @@
 import React from 'react';
 import SlideContainer from '../components/layout/SlideContainer';
-import { organizationalPosition } from '../data/presentationData';
+import '../styles/slides/slide-09.css';
 
-function Slide09OrganizationalPosition() {
+const currentItems = [
+  'گزارش‌دهی از مسیر معاونت مارکتینگ',
+  'مشارکت در پروژه‌های چند واحد سازمانی',
+  'اختیار مستقل در بخشی از تصمیم‌های طراحی',
+  'نیاز به تأیید سایر ذی‌نفعان در برخی تصمیم‌ها',
+];
+
+const proposedItems = [
+  'جایگاه تخصصی و بین‌واحدی',
+  'مشارکت از ابتدای تصمیم‌سازی محصول و مارکتینگ',
+  'حدود اختیار روشن برای تصمیم‌های طراحی',
+  'تعریف اولویت‌ها با حضور ذی‌نفعان کلیدی',
+];
+
+export default function Slide09OrganizationalPosition() {
   return (
     <SlideContainer
       slideNumber={9}
       totalSlides={12}
       eyebrow="08 / ORGANIZATIONAL POSITION"
-      title="ساختار فعلی، ظرفیت آینده"
-      description="برای بهره‌برداری بهتر از تخصص تیم، لازم است جایگاه آن متناسب با دامنه اثرگذاری و ارتباطات میان‌سازمانی‌اش تعریف شود."
+      title="جایگاه سازمانی باید بازتاب‌دهنده نقش واقعی تیم باشد"
+      description="پیشنهاد برای هم‌راستاسازی جایگاه، اختیار و دامنه اثرگذاری تیم خلاقیت و طراحی محصول"
     >
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-8">
-        <div className="surface-card p-6 md:p-7">
-          <div className="text-white/45 text-sm font-bold">
-            CURRENT STRUCTURE
-          </div>
+      <section className="org-position">
+        <div className="org-comparison">
+          <article className="org-panel org-panel--current">
+            <div className="org-panel-head">
+              <div>
+                <span className="org-kicker">CURRENT MODEL</span>
+                <h3>وضعیت فعلی</h3>
+              </div>
+              <span className="org-state">ساختار موجود</span>
+            </div>
 
-          <h3 className="text-xl font-black mt-4">ساختار گزارش‌دهی فعلی</h3>
-
-          <div className="flex flex-col items-center mt-7">
-            <div className="w-full max-w-xs rounded-xl border border-white/15 bg-white/5 p-5 text-center">
-              <div className="text-white/45 text-xs mb-2">گزارش‌دهی به</div>
-              <div className="font-bold text-lg">
-                {organizationalPosition.currentReportingLine}
+            <div className="org-reporting">
+              <span>مسیر گزارش‌دهی فعلی</span>
+              <div className="org-node org-node--parent">
+                <span className="org-node-icon">M</span>
+                <div>
+                  <strong>معاونت مارکتینگ</strong>
+                  <small>مسیر گزارش‌دهی فعلی</small>
+                </div>
+              </div>
+              <div className="org-tree-line" />
+              <div className="org-node org-node--team">
+                <span className="org-node-icon">D</span>
+                <div>
+                  <strong>تیم خلاقیت و طراحی محصول</strong>
+                  <small>نقش اجرایی و تخصصی</small>
+                </div>
               </div>
             </div>
 
-            <div className="h-9 w-px bg-white/20" />
-
-            <div className="w-full max-w-xs rounded-xl border border-primary/40 bg-primary/10 p-5 text-center">
-              <div className="text-primary-300 text-xs mb-2">واحد تخصصی</div>
-              <div className="font-black text-lg">تیم خلاقیت و طراحی محصول</div>
-            </div>
-          </div>
-
-          <div className="mt-7 border-t border-white/10 pt-5">
-            <div className="text-sm font-bold mb-2">سطح اختیار تصمیم‌گیری</div>
-            <p className="text-sm text-white/55 leading-8">
-              {organizationalPosition.decisionAuthority}
-            </p>
-          </div>
-        </div>
-
-        <div className="surface-card p-6 md:p-7">
-          <div className="text-secondary text-sm font-bold">
-            PROPOSED DEVELOPMENT
-          </div>
-
-          <h3 className="text-xl font-black mt-4">جایگاه پیشنهادی</h3>
-
-          <div className="mt-7 rounded-xl border border-secondary/30 bg-secondary/8 p-5">
-            <div className="text-secondary text-xs font-bold mb-2">
-              PROPOSED ROLE
-            </div>
-            <div className="text-xl font-black leading-9">
-              ظرفیت تخصصی و راهبردی مشترک در سطح سازمان
-            </div>
-          </div>
-
-          <div className="mt-6 space-y-4">
-            {organizationalPosition.strategicResponsibilities.map(
-              (item, index) => (
-                <div key={item} className="flex items-start gap-3">
-                  <span className="text-secondary font-black text-sm mt-1">
-                    0{index + 1}
+            <ul className="org-feature-list">
+              {currentItems.map((item, index) => (
+                <li key={item}>
+                  <span className="org-feature-number">
+                    {new Intl.NumberFormat('fa-IR', {
+                      minimumIntegerDigits: 2,
+                      useGrouping: false,
+                    }).format(index + 1)}
                   </span>
-                  <p className="text-sm text-white/65 leading-7">{item}</p>
-                </div>
-              ),
-            )}
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+
+          <div className="org-transition">
+            <div className="org-transition-icon">
+              <svg viewBox="0 0 48 48" aria-hidden="true">
+                <path d="M8 24h30M28 13l11 11-11 11" />
+              </svg>
+            </div>
+            <span>پیشنهاد تحول</span>
           </div>
+
+          <article className="org-panel org-panel--proposed">
+            <div className="org-panel-head">
+              <div>
+                <span className="org-kicker">PROPOSED MODEL</span>
+                <h3>مدل پیشنهادی</h3>
+              </div>
+              <span className="org-state">مدل هدف</span>
+            </div>
+
+            <div className="org-target">
+              <div className="org-target-core">
+                <span className="org-target-symbol">✳</span>
+                <strong>تیم خلاقیت و طراحی محصول</strong>
+                <small>قابلیت تخصصی بین‌واحدی</small>
+              </div>
+              <div className="org-target-connections">
+                <span>محصول</span>
+                <span>مارکتینگ</span>
+                <span>سایر واحدها</span>
+              </div>
+            </div>
+
+            <ul className="org-feature-list">
+              {proposedItems.map((item, index) => (
+                <li key={item}>
+                  <span className="org-feature-number">
+                    {new Intl.NumberFormat('fa-IR', {
+                      minimumIntegerDigits: 2,
+                      useGrouping: false,
+                    }).format(index + 1)}
+                  </span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
         </div>
-      </div>
 
-      <div className="mt-6 surface-card p-5">
-        <p className="text-sm md:text-base text-white/75 leading-8">
-          <strong className="text-primary-300">پیشنهاد کلیدی:</strong> حفظ
-          ساختار مدیریتی روشن، همراه با دسترسی مستقیم‌تر تیم به تصمیم‌گیران
-          محصول و مارکتینگ، مشارکت در اولویت‌بندی و تعریف استانداردهای مشترک
-          طراحی.
-        </p>
-      </div>
-
-      <p className="text-xs text-white/35 mt-4">
-        ساختار پیشنهادی، یک مسیر توسعه سازمانی است؛ نه توصیف ساختار گزارش‌دهی
-        فعلی.
-      </p>
+        <div className="org-principle">
+          <div className="org-principle-mark">↗</div>
+          <div className="org-principle-copy">
+            <span>اصل پیشنهادی</span>
+            <strong>
+              استقلال حرفه‌ای در طراحی، همراه با پاسخ‌گویی و هم‌راستایی سازمانی
+            </strong>
+          </div>
+          <p>
+            هدف، حذف ارتباط با مارکتینگ نیست؛ هدف، فراهم‌کردن دسترسی و اختیار
+            متناسب با مسئولیت‌های بین‌واحدی تیم است.
+          </p>
+        </div>
+      </section>
     </SlideContainer>
   );
 }
-
-export default Slide09OrganizationalPosition;

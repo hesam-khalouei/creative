@@ -1,158 +1,64 @@
+/* =========================================================
+   CREATIVE TEAM PRESENTATION — DESIGN TOKENS
+   Single source of truth for shared visual variables.
+   ========================================================= */
+
 :root {
-  /* Brand colors */
+  /* Brand */
   --color-primary: #00a693;
-  --color-primary-light: #1fe2ba;
-  --color-primary-dark: #008c7c;
-
+  --color-primary-light: #53f5d0;
   --color-secondary: #ff8a34;
-  --color-secondary-light: #ffb171;
-  --color-secondary-dark: #ef4c07;
 
-  /* Backgrounds */
-  --color-bg: #002b28;
-  --color-bg-soft: #073b36;
-  --color-bg-elevated: #0c4944;
+  /* Background and surfaces */
+  --color-bg: #041b1a;
+  --surface-base: rgba(8, 43, 39, 0.82);
 
-  /* Text */
-  --color-text: #f5fffc;
-  --color-text-secondary: #b5d1ca;
-  --color-text-muted: #789d95;
-
-  /* Borders */
-  --color-border: rgba(200, 255, 240, 0.12);
-  --color-border-strong: rgba(200, 255, 240, 0.22);
-
-  /* Effects */
-  --shadow-card: 0 20px 60px rgba(0, 20, 18, 0.25);
-
-  --shadow-glow: 0 0 50px rgba(0, 166, 147, 0.16);
+  /* Text and borders */
+  --color-text: #f4fbf8;
+  --color-text-secondary: #b5cbc4;
+  --color-border: rgba(200, 255, 240, 0.13);
 
   /* Radius */
-  --radius-sm: 10px;
-  --radius-md: 18px;
-  --radius-lg: 28px;
-  --radius-xl: 36px;
+  --radius-lg: 26px;
 
-  /* Layout */
-  --slide-padding-x: clamp(24px, 5vw, 100px);
-  --slide-padding-y: clamp(24px, 4vh, 64px);
+  /* Shadows */
+  --shadow-card: 0 22px 70px rgba(0, 12, 11, 0.22);
+
+  /* Presentation layout */
+  --slide-padding-x: clamp(20px, 5vw, 88px);
+  --slide-padding-y: clamp(28px, 5vh, 58px);
+  --slide-content-width: 1480px;
 
   /* Motion */
   --transition-fast: 180ms ease;
   --transition-normal: 320ms ease;
-  --transition-slow: 600ms ease;
+
+  /* Typography */
+  --font-family: 'IranYekanX', Tahoma, sans-serif;
 }
 
-/* Base reset */
-* {
-  box-sizing: border-box;
+/* Responsive token adjustments live here, not in presentation.css. */
+@media (min-width: 1600px) {
+  :root { --slide-content-width: 1560px; }
 }
 
-html {
-  scroll-behavior: smooth;
-  background: var(--color-bg);
+@media (max-width: 1100px) {
+  :root {
+    --slide-padding-x: 34px;
+    --slide-padding-y: 38px;
+  }
 }
 
-body {
-  margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
-
-  background: var(--color-bg);
-  color: var(--color-text);
-
-  direction: rtl;
-  font-family: 'IranYekanX', sans-serif;
-
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@media (max-width: 760px) {
+  :root {
+    --slide-padding-x: 18px;
+    --slide-padding-y: 36px;
+  }
 }
 
-/* Selection */
-::selection {
-  color: #002b28;
-  background: #92fee2;
-}
-
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--color-bg);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--color-primary-dark);
-  border-radius: 20px;
-}
-
-/* Shared typography */
-h1,
-h2,
-h3,
-h4,
-p {
-  margin-top: 0;
-}
-
-h1,
-h2,
-h3,
-h4 {
-  font-weight: 800;
-  line-height: 1.35;
-}
-
-p {
-  line-height: 1.9;
-}
-
-button,
-input,
-textarea {
-  font: inherit;
-}
-
-/* Focus accessibility */
-:focus-visible {
-  outline: 2px solid var(--color-secondary);
-  outline-offset: 4px;
-}
-
-/* Numeric content */
-.numeric {
-  direction: ltr;
-  unicode-bidi: isolate;
-  font-variant-numeric: tabular-nums;
-}
-
-/* Shared utility classes */
-.text-gradient {
-  background: linear-gradient(
-    110deg,
-    var(--color-primary-light),
-    var(--color-primary),
-    var(--color-secondary)
-  );
-
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.glass-panel {
-  background: rgba(12, 73, 68, 0.55);
-  border: 1px solid var(--color-border);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-}
-
-.surface-card {
-  background: var(--color-bg-elevated);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-card);
+@media (max-width: 420px) {
+  :root {
+    --slide-padding-x: 14px;
+    --slide-padding-y: 30px;
+  }
 }

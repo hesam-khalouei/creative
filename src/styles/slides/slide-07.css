@@ -1,0 +1,842 @@
+/* =========================================
+   SLIDE 07 — TEAM CONTRIBUTION
+   Editorial Premium / Responsive
+========================================= */
+
+.slide--7 .contribution-dashboard {
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(15px, 1.5vw, 21px);
+  margin-top: clamp(18px, 2.2vh, 26px);
+}
+
+/* =========================================
+   SHARED CARD SYSTEM
+========================================= */
+
+.slide--7 .contribution-total,
+.slide--7 .contribution-insight,
+.slide--7 .contribution-chart,
+.slide--7 .contribution-groups {
+  position: relative;
+  min-width: 0;
+  border: 1px solid rgba(190, 239, 222, 0.13);
+  border-radius: clamp(20px, 1.7vw, 26px);
+  background: linear-gradient(
+    145deg,
+    rgba(15, 55, 49, 0.88),
+    rgba(5, 30, 28, 0.94)
+  );
+  box-shadow: 0 15px 35px rgba(0, 12, 11, 0.11);
+  isolation: isolate;
+}
+
+.slide--7 .contribution-total::before,
+.slide--7 .contribution-insight::before,
+.slide--7 .contribution-chart::before,
+.slide--7 .contribution-groups::before {
+  content: '';
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  right: clamp(20px, 2vw, 28px);
+  width: 46px;
+  height: 2px;
+  border-radius: 0 0 4px 4px;
+  background: rgba(83, 245, 208, 0.65);
+  pointer-events: none;
+}
+
+.slide--7 .contribution-insight::before {
+  background: rgba(140, 199, 255, 0.7);
+}
+
+.slide--7 .contribution-groups::before {
+  background: rgba(255, 177, 113, 0.72);
+}
+
+/* =========================================
+   OVERVIEW
+========================================= */
+
+.slide--7 .contribution-overview {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.78fr) minmax(0, 2fr);
+  gap: clamp(13px, 1.4vw, 19px);
+  min-width: 0;
+}
+
+/* Total card */
+
+.slide--7 .contribution-total {
+  overflow: hidden;
+  min-height: 128px;
+  padding: clamp(20px, 1.8vw, 26px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 7px;
+  border-color: rgba(0, 166, 147, 0.25);
+  background:
+    radial-gradient(
+      circle at 12% 100%,
+      rgba(0, 166, 147, 0.2),
+      transparent 48%
+    ),
+    linear-gradient(135deg, rgba(0, 166, 147, 0.13), rgba(7, 38, 34, 0.96));
+}
+
+.slide--7 .contribution-total::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  width: 170px;
+  aspect-ratio: 1;
+  left: -75px;
+  bottom: -105px;
+  border: 1px solid rgba(83, 245, 208, 0.1);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 18px rgba(83, 245, 208, 0.025),
+    0 0 0 38px rgba(83, 245, 208, 0.018);
+  pointer-events: none;
+}
+
+.slide--7 .contribution-kicker {
+  color: #a1c5b9;
+  font-size: clamp(11px, 0.85vw, 13px);
+  font-weight: 800;
+  letter-spacing: 0.055em;
+  line-height: 1.8;
+}
+
+.slide--7 .contribution-total > strong {
+  color: #f4fbf8;
+  font-size: clamp(39px, 3.7vw, 52px);
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: -1px;
+  font-variant-numeric: tabular-nums;
+}
+
+.slide--7 .contribution-total > span:last-child {
+  color: #b2c9c0;
+  font-size: clamp(14px, 1vw, 16px);
+  line-height: 1.8;
+}
+
+/* Insight card */
+
+.slide--7 .contribution-insight {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: center;
+  padding: clamp(18px, 1.7vw, 24px) 14px;
+  gap: 8px;
+  overflow: hidden;
+}
+
+.slide--7 .contribution-insight-item {
+  position: relative;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.slide--7 .contribution-insight-number {
+  color: #f1f8f5;
+  font-size: clamp(27px, 2.2vw, 33px);
+  font-weight: 850;
+  line-height: 1.3;
+  font-variant-numeric: tabular-nums;
+}
+
+.slide--7 .contribution-insight-item > span:last-child {
+  color: #afc4bb;
+  font-size: clamp(13px, 0.95vw, 15px);
+  line-height: 1.8;
+}
+
+.slide--7 .contribution-insight-divider {
+  display: none;
+}
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
+
+.slide--7 .contribution-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(250px, 0.85fr);
+  gap: clamp(13px, 1.4vw, 19px);
+  align-items: stretch;
+  min-width: 0;
+}
+
+.slide--7 .contribution-chart,
+.slide--7 .contribution-groups {
+  padding: clamp(20px, 1.8vw, 26px);
+  overflow: hidden;
+}
+
+/* Section headings */
+
+.slide--7 .contribution-section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 13px;
+  padding-bottom: 17px;
+  border-bottom: 1px solid rgba(190, 239, 222, 0.12);
+}
+
+.slide--7 .contribution-section-heading > div {
+  min-width: 0;
+}
+
+.slide--7 .contribution-section-heading h3 {
+  color: #f0f7f4;
+  font-size: clamp(24px, 2vw, 31px);
+  font-weight: 900;
+  line-height: 1.55;
+  margin: 6px 0 0;
+}
+
+.slide--7 .contribution-unit {
+  flex: 0 0 auto;
+  padding: 6px 10px;
+  border: 1px solid rgba(190, 239, 222, 0.12);
+  border-radius: 9px;
+  color: #b2c6bd;
+  background: rgba(255, 255, 255, 0.04);
+  font-size: clamp(12px, 0.85vw, 13px);
+  white-space: nowrap;
+}
+
+/* =========================================
+   INDIVIDUAL MEMBER CHART
+========================================= */
+
+.slide--7 .contribution-member-list {
+  padding-top: 10px;
+}
+
+.slide--7 .contribution-member {
+  display: grid;
+  grid-template-columns: minmax(145px, 0.95fr) minmax(65px, 1fr) 68px;
+  align-items: center;
+  gap: clamp(10px, 1vw, 14px);
+  min-height: 55px;
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(190, 239, 222, 0.075);
+}
+
+.slide--7 .contribution-member:last-child {
+  border-bottom: 0;
+}
+
+.slide--7 .contribution-member-meta {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-width: 0;
+}
+
+.slide--7 .contribution-rank {
+  flex: 0 0 25px;
+  display: grid;
+  place-items: center;
+  width: 25px;
+  height: 25px;
+  border: 1px solid rgba(190, 239, 222, 0.12);
+  border-radius: 8px;
+  color: #a2bcb1;
+  background: rgba(255, 255, 255, 0.035);
+  font-size: 12px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.slide--7 .contribution-member-name {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.slide--7 .contribution-member-name strong {
+  overflow-wrap: anywhere;
+  color: #e7f0ec;
+  font-size: clamp(14px, 1vw, 16px);
+  font-weight: 750;
+  line-height: 1.65;
+}
+
+.slide--7 .contribution-member-name span {
+  color: #a0b7ad;
+  font-size: clamp(12px, 0.85vw, 13px);
+  line-height: 1.6;
+}
+
+.slide--7 .contribution-bar-area {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+}
+
+.slide--7 .contribution-bar-track {
+  width: 100%;
+  height: 9px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.085);
+  overflow: hidden;
+  direction: ltr;
+}
+
+.slide--7 .contribution-bar-fill {
+  height: 100%;
+  min-width: 3px;
+  border-radius: inherit;
+  transition: width 0.55s ease;
+}
+
+.slide--7 .contribution-bar-fill--accent {
+  background: linear-gradient(90deg, #087f73, #31c9ad);
+  box-shadow: 0 0 12px rgba(0, 166, 147, 0.2);
+}
+
+.slide--7 .contribution-bar-fill--default {
+  background: linear-gradient(90deg, #456d65, #83a99d);
+}
+
+.slide--7 .contribution-member-value {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+  white-space: nowrap;
+}
+
+.slide--7 .contribution-member-value strong {
+  color: #f2f8f5;
+  font-size: clamp(14px, 1vw, 16px);
+  font-weight: 850;
+  font-variant-numeric: tabular-nums;
+}
+
+.slide--7 .contribution-member-value span {
+  color: #a0b7ad;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* =========================================
+   DISCIPLINE GROUPS
+========================================= */
+
+.slide--7 .contribution-groups {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(17px, 1.5vw, 22px);
+}
+
+.slide--7 .contribution-groups .contribution-section-heading {
+  padding-bottom: 17px;
+}
+
+.slide--7 .contribution-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+
+.slide--7 .contribution-group-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.slide--7 .contribution-group-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex: 0 0 10px;
+  box-shadow: 0 0 10px currentColor;
+}
+
+.slide--7 .contribution-group-top strong {
+  flex: 1;
+  min-width: 0;
+  color: #e1ece7;
+  font-size: clamp(14px, 1vw, 16px);
+  font-weight: 750;
+  line-height: 1.7;
+}
+
+.slide--7 .contribution-group-top > span:last-child {
+  flex: 0 0 auto;
+  color: #f2f8f5;
+  font-size: 15px;
+  font-weight: 850;
+  font-variant-numeric: tabular-nums;
+}
+
+.slide--7 .contribution-group-track {
+  width: 100%;
+  height: 9px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  direction: ltr;
+}
+
+.slide--7 .contribution-group-track > div {
+  height: 100%;
+  border-radius: inherit;
+  min-width: 3px;
+}
+
+.slide--7 .contribution-group-members {
+  color: #a2b7ae;
+  font-size: clamp(12px, 0.85vw, 13px);
+  line-height: 1.9;
+  overflow-wrap: anywhere;
+}
+
+/* Range highlight */
+
+.slide--7 .contribution-range {
+  position: relative;
+  margin-top: auto;
+  padding: 16px 17px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border: 1px solid rgba(255, 138, 52, 0.19);
+  border-radius: 16px;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 138, 52, 0.09),
+    rgba(255, 255, 255, 0.025)
+  );
+}
+
+.slide--7 .contribution-range::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 16px;
+  width: 30px;
+  height: 2px;
+  border-radius: 0 0 4px 4px;
+  background: rgba(255, 177, 113, 0.75);
+}
+
+.slide--7 .contribution-range > span {
+  color: #c0b3a5;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.slide--7 .contribution-range strong {
+  color: #fff4e9;
+  font-size: clamp(26px, 2vw, 31px);
+  font-weight: 900;
+  line-height: 1.4;
+  font-variant-numeric: tabular-nums;
+}
+
+.slide--7 .contribution-range strong span {
+  color: #c1a58e;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.slide--7 .contribution-range small {
+  color: #b3a394;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* =========================================
+   FOOTNOTE
+========================================= */
+
+.slide--7 .contribution-footnote {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  padding: 2px 5px 0;
+  min-width: 0;
+}
+
+.slide--7 .contribution-footnote > span {
+  flex: 0 0 8px;
+  width: 8px;
+  height: 8px;
+  margin-top: 8px;
+  border-radius: 50%;
+  background: #ff9a51;
+  box-shadow: 0 0 10px rgba(255, 138, 52, 0.3);
+}
+
+.slide--7 .contribution-footnote p {
+  min-width: 0;
+  color: #a9bdb4;
+  font-size: clamp(13px, 0.9vw, 15px);
+  line-height: 1.95;
+  margin: 0;
+}
+
+/* =========================================
+   LAPTOP
+========================================= */
+
+@media (max-width: 1100px) {
+  .slide--7 .contribution-overview {
+    grid-template-columns: minmax(190px, 0.75fr) minmax(0, 1.6fr);
+  }
+
+  .slide--7 .contribution-content {
+    grid-template-columns: minmax(0, 1.45fr) minmax(225px, 0.85fr);
+  }
+
+  .slide--7 .contribution-member {
+    grid-template-columns: minmax(125px, 0.95fr) minmax(45px, 1fr) 58px;
+    gap: 8px;
+  }
+
+  .slide--7 .contribution-rank {
+    flex-basis: 22px;
+    width: 22px;
+    height: 22px;
+  }
+
+  .slide--7 .contribution-member-name strong {
+    font-size: 14px;
+  }
+
+  .slide--7 .contribution-member-name span {
+    font-size: 12px;
+  }
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 850px) {
+  .slide--7 .contribution-overview {
+    grid-template-columns: 1fr;
+  }
+
+  .slide--7 .contribution-total {
+    min-height: 112px;
+  }
+
+  .slide--7 .contribution-content {
+    grid-template-columns: 1fr;
+  }
+
+  .slide--7 .contribution-groups {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 18px;
+  }
+
+  .slide--7 .contribution-groups .contribution-section-heading {
+    grid-column: 1 / -1;
+  }
+
+  .slide--7 .contribution-range {
+    margin-top: 0;
+    align-self: stretch;
+  }
+
+  .slide--7 .contribution-member {
+    grid-template-columns: minmax(145px, 0.95fr) minmax(60px, 1fr) 65px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .slide--7 .contribution-dashboard {
+    gap: 12px;
+    margin-top: 15px;
+  }
+
+  .slide--7 .contribution-overview,
+  .slide--7 .contribution-content {
+    gap: 11px;
+  }
+
+  .slide--7 .contribution-total {
+    min-height: 110px;
+    padding: 18px;
+    border-radius: 19px;
+  }
+
+  .slide--7 .contribution-total > strong {
+    font-size: 38px;
+  }
+
+  .slide--7 .contribution-total > span:last-child {
+    font-size: 14px;
+  }
+
+  .slide--7 .contribution-insight {
+    padding: 17px 8px;
+    border-radius: 19px;
+    gap: 5px;
+  }
+
+  .slide--7 .contribution-insight-number {
+    font-size: clamp(23px, 6vw, 28px);
+  }
+
+  .slide--7 .contribution-insight-item > span:last-child {
+    font-size: 12px;
+  }
+
+  .slide--7 .contribution-chart,
+  .slide--7 .contribution-groups {
+    padding: 17px;
+    border-radius: 19px;
+  }
+
+  .slide--7 .contribution-section-heading {
+    align-items: flex-end;
+    gap: 9px;
+    padding-bottom: 14px;
+  }
+
+  .slide--7 .contribution-section-heading h3 {
+    font-size: 21px;
+  }
+
+  .slide--7 .contribution-unit {
+    font-size: 11px;
+    padding: 5px 7px;
+  }
+
+  /* Member rows become two-level rows on mobile */
+
+  .slide--7 .contribution-member {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: auto auto;
+    gap: 8px 12px;
+    min-height: 0;
+    padding: 13px 0;
+  }
+
+  .slide--7 .contribution-member-meta {
+    grid-column: 1;
+    grid-row: 1;
+    gap: 9px;
+  }
+
+  .slide--7 .contribution-rank {
+    flex-basis: 23px;
+    width: 23px;
+    height: 23px;
+    font-size: 11px;
+  }
+
+  .slide--7 .contribution-member-name {
+    gap: 3px;
+  }
+
+  .slide--7 .contribution-member-name strong {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .slide--7 .contribution-member-name span {
+    font-size: 12px;
+  }
+
+  .slide--7 .contribution-member-value {
+    grid-column: 2;
+    grid-row: 1;
+    align-items: flex-end;
+    gap: 2px;
+  }
+
+  .slide--7 .contribution-member-value strong {
+    font-size: 15px;
+  }
+
+  .slide--7 .contribution-member-value span {
+    font-size: 11px;
+  }
+
+  .slide--7 .contribution-bar-area {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .slide--7 .contribution-bar-track {
+    height: 7px;
+  }
+
+  /* Groups */
+
+  .slide--7 .contribution-groups {
+    grid-template-columns: 1fr;
+    gap: 17px;
+  }
+
+  .slide--7 .contribution-groups .contribution-section-heading {
+    grid-column: auto;
+  }
+
+  .slide--7 .contribution-group {
+    gap: 8px;
+  }
+
+  .slide--7 .contribution-group-top strong {
+    font-size: 14px;
+  }
+
+  .slide--7 .contribution-group-top > span:last-child {
+    font-size: 15px;
+  }
+
+  .slide--7 .contribution-group-track {
+    height: 8px;
+  }
+
+  .slide--7 .contribution-group-members {
+    font-size: 12px;
+  }
+
+  .slide--7 .contribution-range {
+    padding: 14px 16px;
+  }
+
+  .slide--7 .contribution-range > span {
+    font-size: 12px;
+  }
+
+  .slide--7 .contribution-range strong {
+    font-size: 27px;
+  }
+
+  .slide--7 .contribution-range small {
+    font-size: 11px;
+  }
+
+  .slide--7 .contribution-footnote {
+    gap: 9px;
+  }
+
+  .slide--7 .contribution-footnote p {
+    font-size: 12px;
+    line-height: 1.9;
+  }
+}
+
+/* =========================================
+   COMPACT PHONES
+========================================= */
+
+@media (max-width: 380px) {
+  .slide--7 .contribution-chart,
+  .slide--7 .contribution-groups {
+    padding: 14px;
+  }
+
+  .slide--7 .contribution-total {
+    padding: 16px;
+  }
+
+  .slide--7 .contribution-total > strong {
+    font-size: 35px;
+  }
+
+  .slide--7 .contribution-insight {
+    padding: 14px 5px;
+  }
+
+  .slide--7 .contribution-insight-number {
+    font-size: 22px;
+  }
+
+  .slide--7 .contribution-insight-item > span:last-child {
+    font-size: 11px;
+  }
+
+  .slide--7 .contribution-section-heading h3 {
+    font-size: 19px;
+  }
+
+  .slide--7 .contribution-unit {
+    font-size: 10px;
+  }
+
+  .slide--7 .contribution-member {
+    gap: 7px 8px;
+  }
+
+  .slide--7 .contribution-member-meta {
+    gap: 7px;
+  }
+
+  .slide--7 .contribution-rank {
+    flex-basis: 21px;
+    width: 21px;
+    height: 21px;
+    font-size: 10px;
+  }
+
+  .slide--7 .contribution-member-name strong {
+    font-size: 13px;
+  }
+
+  .slide--7 .contribution-member-name span {
+    font-size: 11px;
+  }
+
+  .slide--7 .contribution-member-value strong {
+    font-size: 14px;
+  }
+
+  .slide--7 .contribution-member-value span {
+    font-size: 10px;
+  }
+
+  .slide--7 .contribution-group-top strong {
+    font-size: 13px;
+  }
+
+  .slide--7 .contribution-group-members {
+    font-size: 11px;
+  }
+
+  .slide--7 .contribution-range strong {
+    font-size: 25px;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .slide--7 .contribution-bar-fill {
+    transition: none;
+  }
+}

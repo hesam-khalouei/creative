@@ -1,0 +1,1017 @@
+/* =========================================================
+   SLIDE 12 — THE WAY FORWARD
+   Executive Decision / Editorial Premium
+========================================================= */
+
+.slide--12 .decision-slide {
+  --decision-mint: #45d5b7;
+  --decision-orange: #ff9b57;
+  --decision-blue: #8fb5ff;
+  --decision-purple: #c3a0f2;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: clamp(15px, 1.5vw, 21px);
+
+  margin-top: clamp(17px, 1.7vw, 24px);
+
+  direction: rtl;
+}
+
+/* =========================================================
+   MAIN LAYOUT
+========================================================= */
+
+.slide--12 .decision-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1.42fr) minmax(250px, 0.78fr);
+  align-items: stretch;
+  gap: clamp(13px, 1.4vw, 19px);
+
+  min-width: 0;
+}
+
+/* =========================================================
+   DECISION LIST
+========================================================= */
+
+.slide--12 .decision-list {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(10px, 0.95vw, 13px);
+
+  min-width: 0;
+}
+
+/* =========================================================
+   DECISION CARD
+========================================================= */
+
+.slide--12 .decision-item {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr) 30px;
+  align-items: center;
+  gap: clamp(12px, 1.2vw, 17px);
+
+  min-width: 0;
+  min-height: 105px;
+
+  padding: clamp(15px, 1.45vw, 20px);
+
+  border: 1px solid rgba(215, 242, 231, 0.1);
+  border-radius: 17px;
+
+  background: linear-gradient(
+    115deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.012)
+  );
+
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    background 220ms ease;
+}
+
+.slide--12 .decision-item::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+
+  top: 0;
+  right: 0;
+
+  width: 3px;
+  height: 100%;
+
+  background: var(--decision-accent);
+  opacity: 0.9;
+}
+
+.slide--12 .decision-item::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+
+  top: -85px;
+  left: -65px;
+
+  width: 140px;
+  height: 140px;
+
+  border-radius: 50%;
+  background: var(--decision-glow);
+  filter: blur(30px);
+  opacity: 0.55;
+
+  pointer-events: none;
+}
+
+.slide--12 .decision-item:hover {
+  transform: translateY(-2px);
+  border-color: var(--decision-border);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* =========================================================
+   ACCENT VARIANTS
+========================================================= */
+
+.slide--12 .decision-item--teal {
+  --decision-accent: var(--decision-mint);
+  --decision-glow: rgba(69, 213, 183, 0.23);
+  --decision-border: rgba(69, 213, 183, 0.32);
+}
+
+.slide--12 .decision-item--orange {
+  --decision-accent: var(--decision-orange);
+  --decision-glow: rgba(255, 155, 87, 0.2);
+  --decision-border: rgba(255, 155, 87, 0.32);
+}
+
+.slide--12 .decision-item--blue {
+  --decision-accent: var(--decision-blue);
+  --decision-glow: rgba(143, 181, 255, 0.2);
+  --decision-border: rgba(143, 181, 255, 0.32);
+}
+
+.slide--12 .decision-item--purple {
+  --decision-accent: var(--decision-purple);
+  --decision-glow: rgba(195, 160, 242, 0.2);
+  --decision-border: rgba(195, 160, 242, 0.32);
+}
+
+/* =========================================================
+   DECISION NUMBER
+========================================================= */
+
+.slide--12 .decision-number {
+  position: relative;
+
+  width: 46px;
+  height: 46px;
+  flex: 0 0 46px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 13px;
+
+  color: var(--decision-accent);
+
+  background: color-mix(in srgb, var(--decision-accent) 12%, transparent);
+
+  border: 1px solid color-mix(in srgb, var(--decision-accent) 28%, transparent);
+
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  direction: ltr;
+  font-variant-numeric: tabular-nums;
+}
+
+/* =========================================================
+   DECISION COPY
+========================================================= */
+
+.slide--12 .decision-copy {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.slide--12 .decision-tag {
+  display: inline-block;
+
+  color: var(--decision-accent);
+
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: 1.15px;
+  line-height: 1.6;
+
+  direction: ltr;
+  overflow-wrap: anywhere;
+}
+
+.slide--12 .decision-copy h3 {
+  margin: 5px 0 4px;
+
+  color: #f1f7f4;
+  font-size: clamp(19px, 1.35vw, 22px);
+  font-weight: 850;
+  line-height: 1.65;
+
+  overflow-wrap: anywhere;
+}
+
+.slide--12 .decision-copy p {
+  margin: 0;
+
+  color: #a9bbb2;
+  font-size: clamp(14px, 0.95vw, 16px);
+  font-weight: 450;
+  line-height: 1.9;
+
+  overflow-wrap: anywhere;
+}
+
+/* =========================================================
+   DECISION ARROW
+========================================================= */
+
+.slide--12 .decision-arrow {
+  width: 30px;
+  height: 30px;
+
+  display: grid;
+  place-items: center;
+
+  color: var(--decision-accent);
+
+  border: 1px solid color-mix(in srgb, var(--decision-accent) 28%, transparent);
+
+  border-radius: 50%;
+
+  background: color-mix(in srgb, var(--decision-accent) 8%, transparent);
+
+  font-size: 15px;
+
+  transition:
+    transform 220ms ease,
+    background 220ms ease;
+}
+
+.slide--12 .decision-item:hover .decision-arrow {
+  transform: translateX(-3px);
+
+  background: color-mix(in srgb, var(--decision-accent) 18%, transparent);
+}
+
+/* =========================================================
+   ASIDE — DESIGN + BUSINESS
+========================================================= */
+
+.slide--12 .decision-aside {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  min-width: 0;
+  min-height: 100%;
+
+  padding: clamp(21px, 2vw, 28px);
+
+  border: 1px solid rgba(69, 213, 183, 0.24);
+  border-radius: 20px;
+
+  background:
+    radial-gradient(
+      circle at 88% 8%,
+      rgba(69, 213, 183, 0.16),
+      transparent 36%
+    ),
+    linear-gradient(145deg, #0c3b34, #071f1d);
+}
+
+.slide--12 .decision-aside::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+
+  left: -125px;
+  bottom: -145px;
+
+  width: 230px;
+  height: 230px;
+
+  border: 1px solid rgba(69, 213, 183, 0.12);
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 0 22px rgba(69, 213, 183, 0.025),
+    0 0 0 44px rgba(69, 213, 183, 0.02);
+
+  pointer-events: none;
+}
+
+.slide--12 .decision-aside::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+
+  top: 0;
+  right: 0;
+
+  width: 3px;
+  height: 100%;
+
+  background: rgba(69, 213, 183, 0.7);
+}
+
+/* =========================================================
+   ASIDE TOP
+========================================================= */
+
+.slide--12 .decision-aside-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.slide--12 .decision-kicker {
+  padding-top: 5px;
+
+  color: #82cbb8;
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 1.4px;
+
+  direction: ltr;
+}
+
+/* =========================================================
+   ORBIT SYMBOL
+========================================================= */
+
+.slide--12 .decision-orbit {
+  position: relative;
+
+  width: clamp(82px, 7vw, 112px);
+  height: clamp(82px, 7vw, 112px);
+  flex: 0 0 auto;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(69, 213, 183, 0.42);
+  border-radius: 50%;
+
+  background: rgba(69, 213, 183, 0.05);
+}
+
+.slide--12 .decision-orbit::before,
+.slide--12 .decision-orbit::after {
+  content: '';
+  position: absolute;
+
+  inset: 8px;
+
+  border: 1px dashed rgba(69, 213, 183, 0.3);
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+.slide--12 .decision-orbit::after {
+  inset: -6px;
+
+  border-style: solid;
+  border-color: rgba(69, 213, 183, 0.14);
+}
+
+.slide--12 .decision-orbit-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+
+  direction: ltr;
+}
+
+.slide--12 .decision-orbit-inner span {
+  color: #d1eee3;
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: 1px;
+}
+
+.slide--12 .decision-orbit-inner strong {
+  color: var(--decision-mint);
+  font-size: 22px;
+  line-height: 1;
+}
+
+/* =========================================================
+   ASIDE MESSAGE
+========================================================= */
+
+.slide--12 .decision-aside-copy {
+  /* margin-top: clamp(22px, 2.2vw, 31px); */
+}
+
+.slide--12 .decision-aside-copy > span {
+  color: #78c8b2;
+  font-size: 15px;
+  font-weight: 750;
+  line-height: 1.7;
+}
+
+.slide--12 .decision-aside-copy h3 {
+  margin: 10px 0 0;
+
+  color: #f2faf6;
+  font-size: clamp(24px, 2vw, 30px);
+  font-weight: 900;
+  line-height: 1.9;
+
+  overflow-wrap: anywhere;
+}
+
+/* =========================================================
+   ASIDE FOOTER
+========================================================= */
+
+.slide--12 .decision-aside-footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-top: clamp(20px, 2vw, 27px);
+  padding-top: 15px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.13);
+
+  color: #bdd6ca;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.8;
+}
+
+.slide--12 .decision-dot {
+  width: 8px;
+  height: 8px;
+  flex: 0 0 8px;
+
+  border-radius: 50%;
+
+  background: var(--decision-mint);
+  box-shadow: 0 0 12px rgba(69, 213, 183, 0.55);
+}
+
+/* =========================================================
+   NEXT STEP
+========================================================= */
+
+.slide--12 .decision-next-step {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(12px, 1.35vw, 18px);
+
+  min-width: 0;
+
+  padding: clamp(16px, 1.45vw, 20px) clamp(17px, 1.8vw, 24px);
+
+  border: 1px solid rgba(255, 155, 87, 0.25);
+  border-radius: 17px;
+
+  background: linear-gradient(
+    105deg,
+    rgba(255, 155, 87, 0.09),
+    rgba(255, 155, 87, 0.025) 55%,
+    rgba(255, 255, 255, 0.015)
+  );
+}
+
+.slide--12 .decision-next-step::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+
+  top: 0;
+  right: 0;
+
+  width: 3px;
+  height: 100%;
+
+  background: rgba(255, 155, 87, 0.8);
+}
+
+.slide--12 .decision-next-icon {
+  width: 43px;
+  height: 43px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(255, 155, 87, 0.3);
+  border-radius: 12px;
+
+  color: #ffb17d;
+  background: rgba(255, 155, 87, 0.13);
+
+  font-size: 22px;
+}
+
+.slide--12 .decision-next-copy {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.slide--12 .decision-next-copy span {
+  color: #d49b73;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.6;
+}
+
+.slide--12 .decision-next-copy strong {
+  color: #f3e9df;
+  font-size: clamp(16px, 1.15vw, 19px);
+  font-weight: 850;
+  line-height: 1.8;
+
+  overflow-wrap: anywhere;
+}
+
+.slide--12 .decision-next-label {
+  color: #d49b73;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1.4px;
+
+  direction: ltr;
+  white-space: nowrap;
+}
+
+/* =========================================================
+   CLOSING STATEMENT
+========================================================= */
+
+.slide--12 .decision-closing {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 9px 16px;
+
+  padding: 4px 2px 0;
+}
+
+.slide--12 .decision-closing span {
+  color: #81978e;
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: 1.5px;
+
+  direction: ltr;
+  overflow-wrap: anywhere;
+}
+
+.slide--12 .decision-closing strong {
+  color: #d8eee4;
+  font-size: clamp(18px, 1.35vw, 21px);
+  font-weight: 900;
+  line-height: 1.8;
+}
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (max-width: 1100px) {
+  .slide--12 .decision-main {
+    grid-template-columns: minmax(0, 1.25fr) minmax(220px, 0.8fr);
+    gap: 12px;
+  }
+
+  .slide--12 .decision-item {
+    grid-template-columns: 42px minmax(0, 1fr) 27px;
+    gap: 11px;
+    padding: 14px;
+  }
+
+  .slide--12 .decision-number {
+    width: 41px;
+    height: 41px;
+  }
+
+  .slide--12 .decision-copy h3 {
+    font-size: 18px;
+  }
+
+  .slide--12 .decision-copy p {
+    font-size: 14px;
+  }
+
+  .slide--12 .decision-aside {
+    padding: 20px;
+  }
+
+  .slide--12 .decision-aside-copy h3 {
+    font-size: 24px;
+  }
+
+  .slide--12 .decision-next-copy strong {
+    font-size: 16px;
+  }
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 850px) {
+  .slide--12 .decision-main {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .slide--12 .decision-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 11px;
+  }
+
+  .slide--12 .decision-item {
+    grid-template-columns: 42px minmax(0, 1fr);
+    align-items: start;
+    gap: 11px;
+
+    min-height: 145px;
+    padding: 15px;
+  }
+
+  .slide--12 .decision-number {
+    width: 40px;
+    height: 40px;
+  }
+
+  .slide--12 .decision-arrow {
+    display: none;
+  }
+
+  .slide--12 .decision-copy h3 {
+    font-size: 17px;
+  }
+
+  .slide--12 .decision-copy p {
+    font-size: 13px;
+  }
+
+  .slide--12 .decision-aside {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 15px 22px;
+
+    padding: 19px 21px;
+  }
+
+  .slide--12 .decision-aside-top {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+
+    align-items: center;
+  }
+
+  .slide--12 .decision-aside-copy {
+    grid-column: 1;
+    grid-row: 1;
+
+    margin-top: 0;
+  }
+
+  .slide--12 .decision-aside-copy h3 {
+    font-size: clamp(21px, 2.8vw, 26px);
+    line-height: 1.8;
+  }
+
+  .slide--12 .decision-aside-footer {
+    grid-column: 1;
+    grid-row: 2;
+
+    margin-top: 0;
+    padding-top: 11px;
+  }
+
+  .slide--12 .decision-orbit {
+    width: 78px;
+    height: 78px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+  .slide--12 .decision-slide {
+    gap: 12px;
+    margin-top: 13px;
+  }
+
+  .slide--12 .decision-main {
+    gap: 11px;
+  }
+
+  .slide--12 .decision-list {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 9px;
+  }
+
+  .slide--12 .decision-item {
+    grid-template-columns: 39px minmax(0, 1fr) 25px;
+    align-items: center;
+    gap: 11px;
+
+    min-height: 0;
+    padding: 13px;
+
+    border-radius: 14px;
+  }
+
+  .slide--12 .decision-number {
+    width: 37px;
+    height: 37px;
+
+    border-radius: 11px;
+    font-size: 12px;
+  }
+
+  .slide--12 .decision-arrow {
+    display: grid;
+
+    width: 25px;
+    height: 25px;
+
+    font-size: 12px;
+  }
+
+  .slide--12 .decision-tag {
+    font-size: 9px;
+  }
+
+  .slide--12 .decision-copy h3 {
+    margin: 4px 0 3px;
+    font-size: 16px;
+  }
+
+  .slide--12 .decision-copy p {
+    font-size: 13px;
+    line-height: 1.85;
+  }
+
+  /* Aside */
+
+  .slide--12 .decision-aside {
+    grid-template-columns: minmax(0, 1fr) 70px;
+    gap: 12px;
+
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .slide--12 .decision-aside-top {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+  }
+
+  .slide--12 .decision-kicker {
+    padding-top: 0;
+    font-size: 9px;
+    text-align: center;
+  }
+
+  .slide--12 .decision-orbit {
+    width: 80px;
+    height: 80px;
+  }
+
+  .slide--12 .decision-orbit-inner span {
+    font-size: 9px;
+  }
+
+  .slide--12 .decision-orbit-inner strong {
+    font-size: 17px;
+  }
+
+  .slide--12 .decision-aside-copy {
+    grid-column: 1;
+    grid-row: 1;
+
+    margin-top: 0;
+  }
+
+  .slide--12 .decision-aside-copy > span {
+    font-size: 12px;
+  }
+
+  .slide--12 .decision-aside-copy h3 {
+    margin-top: 6px;
+    font-size: clamp(19px, 5vw, 23px);
+    line-height: 1.8;
+  }
+
+  .slide--12 .decision-aside-footer {
+    grid-column: 1 / -1;
+    grid-row: 2;
+
+    margin-top: 5px;
+    padding-top: 11px;
+
+    font-size: 12px;
+  }
+
+  /* Next step */
+
+  .slide--12 .decision-next-step {
+    grid-template-columns: 37px minmax(0, 1fr);
+    gap: 11px;
+
+    padding: 14px;
+    border-radius: 15px;
+  }
+
+  .slide--12 .decision-next-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+
+  .slide--12 .decision-next-copy span {
+    font-size: 11px;
+  }
+
+  .slide--12 .decision-next-copy strong {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .slide--12 .decision-next-label {
+    grid-column: 2;
+    justify-self: start;
+
+    font-size: 9px;
+  }
+
+  /* Closing */
+
+  .slide--12 .decision-closing {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .slide--12 .decision-closing span {
+    font-size: 9px;
+  }
+
+  .slide--12 .decision-closing strong {
+    font-size: 17px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 390px) {
+  .slide--12 .decision-item {
+    grid-template-columns: 35px minmax(0, 1fr) 22px;
+    gap: 9px;
+    padding: 11px;
+  }
+
+  .slide--12 .decision-number {
+    width: 34px;
+    height: 34px;
+    font-size: 11px;
+  }
+
+  .slide--12 .decision-copy h3 {
+    font-size: 15px;
+  }
+
+  .slide--12 .decision-copy p {
+    font-size: 12px;
+  }
+
+  .slide--12 .decision-arrow {
+    width: 22px;
+    height: 22px;
+  }
+
+  .slide--12 .decision-aside {
+    grid-template-columns: minmax(0, 1fr) 62px;
+    padding: 14px;
+  }
+
+  .slide--12 .decision-orbit {
+    width: 57px;
+    height: 57px;
+  }
+
+  .slide--12 .decision-aside-copy h3 {
+    font-size: 19px;
+  }
+
+  .slide--12 .decision-next-copy strong {
+    font-size: 13px;
+  }
+
+  .slide--12 .decision-closing strong {
+    font-size: 16px;
+  }
+}
+
+/* =========================================================
+   VERY SMALL SCREENS
+========================================================= */
+
+@media (max-width: 340px) {
+  .slide--12 .decision-item {
+    grid-template-columns: 31px minmax(0, 1fr);
+    gap: 9px;
+  }
+
+  .slide--12 .decision-number {
+    width: 30px;
+    height: 30px;
+    font-size: 10px;
+  }
+
+  .slide--12 .decision-arrow {
+    display: none;
+  }
+
+  .slide--12 .decision-copy h3 {
+    font-size: 14px;
+  }
+
+  .slide--12 .decision-copy p {
+    font-size: 11px;
+  }
+
+  .slide--12 .decision-aside {
+    grid-template-columns: minmax(0, 1fr) 55px;
+    padding: 12px;
+  }
+
+  .slide--12 .decision-orbit {
+    width: 51px;
+    height: 51px;
+  }
+
+  .slide--12 .decision-aside-copy h3 {
+    font-size: 17px;
+  }
+
+  .slide--12 .decision-next-step {
+    padding: 11px;
+  }
+
+  .slide--12 .decision-next-copy strong {
+    font-size: 12px;
+  }
+
+  .slide--12 .decision-closing strong {
+    font-size: 15px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .slide--12 .decision-item,
+  .slide--12 .decision-arrow {
+    transition: none;
+  }
+
+  .slide--12 .decision-item:hover {
+    transform: none;
+  }
+
+  .slide--12 .decision-item:hover .decision-arrow {
+    transform: none;
+  }
+}

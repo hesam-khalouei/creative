@@ -6,6 +6,7 @@ function usePresentation(totalSlides) {
   const goToSlide = useCallback(
     (index) => {
       if (index < 0 || index >= totalSlides) return;
+
       setCurrentSlide(index);
     },
     [totalSlides],
@@ -21,29 +22,53 @@ function usePresentation(totalSlides) {
 
   useEffect(() => {
     const handleKeyDown = (event) => {
+      if (event.repeat || event.defaultPrevented) return;
+
       const target = event.target;
 
       if (
         target instanceof HTMLElement &&
-        (target.isContentEditable ||
-          ['INPUT', 'TEXTAREA', 'SELECT'].includes(target.tagName))
+        target.closest(
+          'input, textarea, select, button, a, [contenteditable="true"], [role="button"]',
+        )
       ) {
         return;
       }
 
-      switch (event.key) {
-        case 'ArrowRight':
-        case 'ArrowDown':
-        case 'PageDown':
+      const viewport = document.querySelector('.slide-viewport');
+
+      const canScrollUp = viewport && viewport.scrollTop > 2;
+
+      const canScrollDown =
+        viewport &&
+        viewport.scrollTop + viewport.clientHeight < viewport.scrollHeight - 2;
+
+      switch (event.code) {
+        case 'Space':
+        case 'ArrowLeft':
           event.preventDefault();
           nextSlide();
           break;
 
-        case 'ArrowLeft':
-        case 'ArrowUp':
-        case 'PageUp':
+        case 'ArrowRight':
           event.preventDefault();
           previousSlide();
+          break;
+
+        case 'ArrowUp':
+        case 'PageUp':
+          if (canScrollUp) return;
+
+          event.preventDefault();
+          previousSlide();
+          break;
+
+        case 'ArrowDown':
+        case 'PageDown':
+          if (canScrollDown) return;
+
+          event.preventDefault();
+          nextSlide();
           break;
 
         case 'Home':
@@ -74,8 +99,10 @@ function usePresentation(totalSlides) {
     nextSlide,
     previousSlide,
     goToSlide,
+
     isFirstSlide: currentSlide === 0,
     isLastSlide: currentSlide === totalSlides - 1,
+
     progress: totalSlides > 1 ? ((currentSlide + 1) / totalSlides) * 100 : 100,
   };
 }

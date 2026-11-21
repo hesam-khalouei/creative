@@ -1,81 +1,133 @@
 import React from 'react';
 import SlideContainer from '../components/layout/SlideContainer';
+import '../styles/slides/slide-10.css';
 
-function Slide10BusinessCase() {
-  const valueDrivers = [
-    {
-      title: 'انسجام تجربه مشتری',
-      description:
-        'هماهنگی تجربه محصول، ارتباطات بصری و نقاط تماس برند در تعامل با مخاطب.',
-      number: '01',
-    },
-    {
-      title: 'کاهش دوباره‌کاری',
-      description:
-        'توسعه استانداردها و راهکارهای طراحی مشترک برای افزایش انسجام و استفاده مجدد از خروجی‌ها.',
-      number: '02',
-    },
-    {
-      title: 'تصمیم‌گیری بهتر',
-      description:
-        'ورود تخصص طراحی به مراحل اولیه تعریف مسئله و انتخاب راهکارهای محصول و بازاریابی.',
-      number: '03',
-    },
-    {
-      title: 'مدیریت هدفمند منابع',
-      description:
-        'اولویت‌بندی درخواست‌ها متناسب با اهمیت، پیچیدگی و ظرفیت تخصصی اعضای تیم.',
-      number: '04',
-    },
-  ];
+const valueDrivers = [
+  {
+    id: '01',
+    title: 'تصمیم‌گیری بهتر',
+    subtitle: 'BETTER DECISIONS',
+    description:
+      'ورود تخصص طراحی به مراحل اولیه، کمک می‌کند مسئله و تجربه موردنظر پیش از اجرا روشن‌تر شوند.',
+    impact: 'از اجرای سفارش به مشارکت در تصمیم',
+    color: '#00A693',
+    icon: (
+      <svg viewBox="0 0 48 48" aria-hidden="true">
+        <circle cx="21" cy="21" r="12" />
+        <path d="m30 30 10 10M16 21h10M21 16v10" />
+      </svg>
+    ),
+  },
+  {
+    id: '02',
+    title: 'تجربه یکپارچه',
+    subtitle: 'CONSISTENT EXPERIENCE',
+    description:
+      'استانداردهای مشترک، تجربه محصول و ارتباطات بصری را در نقاط تماس مختلف هماهنگ می‌کنند.',
+    impact: 'از خروجی‌های پراکنده به زبان مشترک',
+    color: '#8B9CF6',
+    icon: (
+      <svg viewBox="0 0 48 48" aria-hidden="true">
+        <rect x="6" y="7" width="15" height="15" rx="4" />
+        <rect x="27" y="7" width="15" height="15" rx="4" />
+        <rect x="6" y="28" width="15" height="13" rx="4" />
+        <rect x="27" y="28" width="15" height="13" rx="4" />
+      </svg>
+    ),
+  },
+  {
+    id: '03',
+    title: 'کاهش دوباره‌کاری',
+    subtitle: 'LESS REWORK',
+    description:
+      'تعریف مسئله، معیارها و مسیر تأیید از ابتدا، احتمال بازگشت‌های غیرضروری در فرایند طراحی را کاهش می‌دهد.',
+    impact: 'از اصلاحات تکراری به مسیر روشن',
+    color: '#FF8A34',
+    icon: (
+      <svg viewBox="0 0 48 48" aria-hidden="true">
+        <path d="M9 17a16 16 0 0 1 27-5l4 4M40 8v8h-8M39 31a16 16 0 0 1-27 5l-4-4M8 40v-8h8" />
+      </svg>
+    ),
+  },
+  {
+    id: '04',
+    title: 'آمادگی برای رشد',
+    subtitle: 'READY TO SCALE',
+    description:
+      'تقویت سیستم‌ها و استانداردهای طراحی، توسعه محصولات و ارتباطات را در مقیاس بزرگ‌تر قابل مدیریت‌تر می‌کند.',
+    impact: 'از راه‌حل موردی به قابلیت پایدار',
+    color: '#D78BCB',
+    icon: (
+      <svg viewBox="0 0 48 48" aria-hidden="true">
+        <path d="M8 38 19 27l7 6 14-17" />
+        <path d="M29 16h11v11" />
+      </svg>
+    ),
+  },
+];
 
+export default function Slide10BusinessCase() {
   return (
     <SlideContainer
       slideNumber={10}
       totalSlides={12}
       eyebrow="09 / BUSINESS CASE"
-      title="سرمایه‌گذاری روی طراحی، سرمایه‌گذاری روی کیفیت تصمیم‌هاست"
-      description="ارزش تیم فقط در تعداد خروجی‌ها خلاصه نمی‌شود؛ بخش مهمی از ارزش آن در بهبود فرایندها، انسجام تجربه و کیفیت تصمیم‌های سازمان شکل می‌گیرد."
+      title="توان طراحی، یک سرمایه‌گذاری در کیفیت تصمیم‌هاست"
+      description="چهار مسیر اثرگذاری که با تقویت نقش راهبردی تیم می‌توانند در سطح سازمان فعال‌تر شوند"
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-8">
-        {valueDrivers.map((item, index) => (
-          <div key={item.number} className="surface-card p-6 md:p-7">
-            <div className="flex justify-between items-center">
-              <span className="text-3xl font-black text-primary-300">
-                {item.number}
-              </span>
-              <span
-                className={`w-10 h-1 rounded-full ${
-                  index % 2 === 0 ? 'bg-primary' : 'bg-secondary'
-                }`}
-              />
-            </div>
-            <h3 className="text-xl font-black mt-5">{item.title}</h3>
-            <p className="text-sm text-white/55 leading-8 mt-3">
-              {item.description}
-            </p>
+      <section className="business-case">
+        <div className="business-case-lead">
+          <div className="business-case-lead-mark">
+            <span>DESIGN</span>
+            <strong>×</strong>
+            <span>BUSINESS</span>
           </div>
-        ))}
-      </div>
-
-      <div className="mt-6 rounded-2xl bg-primary/10 border border-primary/25 p-6">
-        <div className="text-primary-300 text-sm font-bold mb-3">
-          THE BUSINESS CASE
+          <p>
+            وقتی طراحی در زمان درست و در سطح درست وارد فرایند شود، خروجی آن فقط
+            یک فایل یا صفحه نیست؛ بخشی از کیفیت تصمیم سازمان است.
+          </p>
         </div>
-        <p className="text-lg md:text-xl font-bold leading-9">
-          با تعریف جایگاه روشن‌تر و مشارکت زودهنگام تیم در تصمیم‌ها، می‌توان از
-          ظرفیت تخصصی موجود برای خلق تجربه منسجم‌تر و استفاده مؤثرتر از منابع
-          سازمان بهره گرفت.
-        </p>
-      </div>
 
-      <p className="text-xs text-white/35 mt-4 leading-6">
-        موارد بالا مسیرهای ارزش‌آفرینی مورد انتظار هستند؛ برای سنجش اثر واقعی
-        آن‌ها باید شاخص‌هایی مانند دوباره‌کاری، زمان تحویل، کیفیت تجربه و رضایت
-        ذی‌نفعان در آینده اندازه‌گیری شوند.
-      </p>
+        <div className="business-case-grid">
+          {valueDrivers.map((item, index) => (
+            <article
+              className={`business-case-item business-case-item--${index + 1}`}
+              key={item.id}
+              style={{ '--value-color': item.color }}
+            >
+              <div className="business-case-item-top">
+                <span>{item.id}</span>
+                <small>{item.subtitle}</small>
+              </div>
+
+              <div className="business-case-icon">{item.icon}</div>
+
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+
+              <div className="business-case-impact">
+                <span>تغییر مورد انتظار</span>
+                <strong>{item.impact}</strong>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div className="business-case-conclusion">
+          <div className="business-case-conclusion-symbol">↗</div>
+          <div>
+            <span>جمع‌بندی مدیریتی</span>
+            <strong>
+              تقویت جایگاه تیم، برای افزایش ظرفیت اثرگذاری طراحی در کل سازمان
+            </strong>
+          </div>
+        </div>
+
+        <p className="business-case-disclaimer">
+          این موارد، ارزش‌های مورد انتظار از مدل پیشنهادی هستند؛ سنجش تحقق آن‌ها
+          به تعریف شاخص و اندازه‌گیری در دوره‌های بعد نیاز دارد.
+        </p>
+      </section>
     </SlideContainer>
   );
 }
-
-export default Slide10BusinessCase;

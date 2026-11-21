@@ -1,83 +1,157 @@
 import React from 'react';
 import SlideContainer from '../components/layout/SlideContainer';
 import { organizationalDistribution } from '../data/metrics';
+import '../styles/slides/slide-04.css';
+
+const formatNumber = (value) => Number(value || 0).toLocaleString('fa-IR');
+
+const formatPercent = (value) =>
+  Number(value || 0).toLocaleString('fa-IR', {
+    minimumFractionDigits: 1,
+    maximumFractionDigits: 1,
+  });
 
 function Slide04BusinessReach() {
-  const total = organizationalDistribution.reduce(
-    (sum, item) => sum + item.value,
-    0,
+  const sortedUnits = [...organizationalDistribution].sort(
+    (a, b) => b.value - a.value,
   );
 
-  const maxValue = Math.max(
-    ...organizationalDistribution.map((item) => item.value),
-  );
+  const total = sortedUnits.reduce((sum, item) => sum + item.value, 0);
+  const topTwo = sortedUnits.slice(0, 2);
+  const topTwoTotal = topTwo.reduce((sum, item) => sum + item.value, 0);
+  const share = total > 0 ? (topTwoTotal / total) * 100 : 0;
+  const maxValue = sortedUnits[0]?.value || 1;
 
   return (
     <SlideContainer
       slideNumber={4}
       totalSlides={12}
-      eyebrow="03 / BUSINESS REACH"
-      title="اثرگذاری تیم محدود به مارکتینگ نیست"
-      description="درخواست‌های ثبت‌شده نشان می‌دهند خروجی‌های تیم خلاقیت در خدمت بخش‌های مختلف سازمان قرار گرفته‌اند."
+      eyebrow="03 / ORGANIZATIONAL REACH"
+      title="اثرگذاری تیم، محدود به یک واحد سازمانی نیست"
+      description="درخواست‌های ثبت‌شده در Jira از ۱۱ واحد سازمانی دریافت شده‌اند؛ نشانه‌ای از گستره خدمات تیم در بخش‌های مختلف کسب‌وکار."
     >
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 mt-7">
-        <div className="surface-card p-6 lg:col-span-4 flex flex-col justify-center">
-          <div className="text-primary-300 text-sm font-bold">
-            ORGANIZATIONAL REACH
+      <div className="reach-layout">
+        <section className="reach-insight">
+          <div className="reach-insight-top">
+            <span className="reach-kicker">CROSS-FUNCTIONAL IMPACT</span>
+            <span className="reach-index">01 / 02</span>
           </div>
-          <div className="text-6xl font-black mt-5 text-white">۱۱</div>
-          <div className="text-white/70 mt-2">
-            واحد سازمانی دریافت‌کننده خدمات
+
+          <div className="reach-insight-main">
+            <span className="reach-insight-label">
+              سهم دو واحد با بیشترین درخواست
+            </span>
+
+            <div className="reach-share">
+              {formatPercent(share)}
+              <span>٪</span>
+            </div>
+
+            <h3>بیش از سه‌چهارم درخواست‌ها از دو واحد اصلی می‌آید.</h3>
+
+            <p>
+              دو واحد نخست در مجموع {formatNumber(topTwoTotal)} درخواست به تیم
+              خلاقیت و طراحی محصول تخصیص داده‌اند.
+            </p>
           </div>
-          <div className="h-px bg-white/10 my-6" />
-          <div className="text-3xl font-black text-secondary">۷۷.۹٪</div>
-          <p className="text-sm text-white/50 leading-7 mt-2">
-            سهم واحدهای مارکتینگ و محصول از درخواست‌های تخصیص‌یافته به تیم
+
+          <div className="reach-focus-units">
+            {topTwo.map((unit, index) => {
+              const percentage = total > 0 ? (unit.value / total) * 100 : 0;
+
+              return (
+                <div
+                  className={`reach-focus-unit ${
+                    index === 0
+                      ? 'reach-focus-unit--mint'
+                      : 'reach-focus-unit--orange'
+                  }`}
+                  key={unit.name}
+                >
+                  <span className="reach-unit-dot" />
+
+                  <div className="reach-focus-copy">
+                    <strong>{unit.name}</strong>
+                    <span>{formatNumber(unit.value)} درخواست</span>
+                  </div>
+
+                  <b>{formatPercent(percentage)}٪</b>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="reach-insight-footer">
+            <span>از مجموع {formatNumber(total)} درخواست تخصیص‌یافته</span>
+            <strong>{formatNumber(sortedUnits.length)} واحد سازمانی</strong>
+          </div>
+        </section>
+
+        <section className="reach-chart-panel">
+          <div className="reach-chart-header">
+            <div>
+              <span className="reach-kicker">REQUEST DISTRIBUTION</span>
+              <h3>توزیع درخواست‌ها بین واحدها</h3>
+              <p>رتبه‌بندی بر اساس تعداد درخواست تخصیص‌یافته</p>
+            </div>
+
+            <div className="reach-total">
+              <strong>{formatNumber(total)}</strong>
+              <span>درخواست</span>
+            </div>
+          </div>
+
+          <div className="reach-bars">
+            {sortedUnits.map((unit, index) => {
+              const width = (unit.value / maxValue) * 100;
+              const percentage = total > 0 ? (unit.value / total) * 100 : 0;
+
+              return (
+                <div className="reach-bar-row" key={unit.name}>
+                  <div className="reach-bar-meta">
+                    <div className="reach-bar-name">
+                      <span
+                        className={`reach-rank ${index < 2 ? 'primary' : ''}`}
+                      >
+                        {formatNumber(index + 1)}
+                      </span>
+
+                      <span>{unit.name}</span>
+                    </div>
+
+                    <div className="reach-bar-value">
+                      <strong>{formatNumber(unit.value)}</strong>
+                      <span>{formatPercent(percentage)}٪</span>
+                    </div>
+                  </div>
+
+                  <div className="reach-track">
+                    <div
+                      className={`reach-fill ${
+                        index === 0 ? 'mint' : index === 1 ? 'orange' : ''
+                      }`}
+                      style={{ width: `${width}%` }}
+                    />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="reach-chart-footer">
+            <span>مبنای مقایسه: درخواست‌های تخصیص‌یافته به تیم</span>
+            <span>{formatNumber(sortedUnits.length)} واحد</span>
+          </div>
+        </section>
+
+        <div className="reach-bottom-line">
+          <span className="reach-bottom-symbol">↗</span>
+          <p>
+            گستره دریافت درخواست‌ها نشان می‌دهد ظرفیت طراحی و خلاقیت در خدمت
+            نیازهای چندین بخش سازمان قرار دارد؛ نه فقط یک واحد.
           </p>
         </div>
-
-        <div className="surface-card p-6 lg:col-span-8">
-          <div className="flex items-center justify-between gap-3 mb-6">
-            <h3 className="font-black text-lg">
-              توزیع درخواست‌ها بر اساس واحد سازمانی
-            </h3>
-            <span className="text-xs text-white/40">
-              مجموع: {total.toLocaleString('fa-IR')}
-            </span>
-          </div>
-
-          <div className="space-y-4">
-            {organizationalDistribution.map((item, index) => (
-              <div key={item.name}>
-                <div className="flex justify-between items-center text-sm mb-2">
-                  <span className="text-white/75">{item.name}</span>
-                  <span className="font-bold text-white tabular-nums">
-                    {item.value.toLocaleString('fa-IR')}
-                  </span>
-                </div>
-                <div className="h-2.5 rounded-full bg-white/8 overflow-hidden">
-                  <div
-                    className={`h-full rounded-full ${
-                      index < 2
-                        ? 'bg-primary'
-                        : 'bg-gradient-to-l from-primary-700 to-primary-400'
-                    }`}
-                    style={{
-                      width: `${(item.value / maxValue) * 100}%`,
-                    }}
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
-
-      <p className="text-xs text-white/35 mt-5 leading-6">
-        مبنا: ۸۵۶ درخواست تخصیص‌یافته به اعضای تیم در Jira. این توزیع، حجم
-        درخواست‌های ثبت‌شده را نشان می‌دهد و معادل ارزش مالی یا میزان اثر تجاری
-        هر واحد نیست.
-      </p>
     </SlideContainer>
   );
 }

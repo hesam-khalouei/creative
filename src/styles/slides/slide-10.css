@@ -1,0 +1,790 @@
+/* =========================================
+   SLIDE 10 — BUSINESS CASE
+   Editorial Premium / Responsive
+========================================= */
+
+.slide--10 .business-case {
+  width: 100%;
+  min-width: 0;
+  margin-top: clamp(17px, 1.6vw, 23px);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(15px, 1.45vw, 20px);
+}
+
+/* =========================================
+   LEAD STATEMENT
+========================================= */
+
+.slide--10 .business-case-lead {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  display: grid;
+  grid-template-columns: minmax(175px, 0.34fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(19px, 2.2vw, 30px);
+
+  padding: clamp(19px, 1.8vw, 25px) clamp(21px, 2.2vw, 30px);
+
+  border: 1px solid rgba(0, 166, 147, 0.23);
+  border-radius: 19px;
+
+  background: linear-gradient(
+    110deg,
+    rgba(0, 166, 147, 0.085),
+    rgba(255, 255, 255, 0.018) 75%
+  );
+}
+
+.slide--10 .business-case-lead::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(to bottom, #53cbb7, rgba(0, 166, 147, 0.12));
+}
+
+.slide--10 .business-case-lead::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: -75px;
+  left: -45px;
+  width: 180px;
+  height: 180px;
+  border: 1px solid rgba(0, 166, 147, 0.13);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 18px rgba(0, 166, 147, 0.025),
+    0 0 0 38px rgba(0, 166, 147, 0.018);
+  pointer-events: none;
+}
+
+.slide--10 .business-case-lead-mark {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+
+  min-width: 0;
+  direction: ltr;
+}
+
+.slide--10 .business-case-lead-mark span {
+  color: #a9c8bd;
+  font-size: clamp(12px, 0.95vw, 14px);
+  font-weight: 850;
+  letter-spacing: 1.4px;
+}
+
+.slide--10 .business-case-lead-mark strong {
+  color: #53d4ba;
+  font-size: 29px;
+  font-weight: 400;
+}
+
+.slide--10 .business-case-lead p {
+  position: relative;
+  z-index: 1;
+
+  margin: 0;
+  padding-right: clamp(17px, 2vw, 27px);
+
+  border-right: 1px solid rgba(0, 166, 147, 0.28);
+
+  color: #d5e6df;
+  font-size: clamp(16px, 1.15vw, 18px);
+  font-weight: 550;
+  line-height: 2.05;
+}
+
+/* =========================================
+   VALUE DRIVERS GRID
+========================================= */
+
+.slide--10 .business-case-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(10px, 1.1vw, 15px);
+  min-width: 0;
+}
+
+/* =========================================
+   VALUE CARD
+========================================= */
+
+.slide--10 .business-case-item {
+  --value-color: #00a693;
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  min-width: 0;
+  min-height: clamp(290px, 26vw, 340px);
+
+  padding: clamp(17px, 1.5vw, 21px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 18px;
+
+  background: linear-gradient(
+    155deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.012) 75%
+  );
+
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.slide--10 .business-case-item::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 2px;
+  background: var(--value-color);
+  opacity: 0.9;
+}
+
+.slide--10 .business-case-item::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: -90px;
+  right: -80px;
+
+  width: 175px;
+  height: 175px;
+
+  border-radius: 50%;
+  background: var(--value-color);
+  opacity: 0.075;
+  filter: blur(42px);
+
+  pointer-events: none;
+}
+
+.slide--10 .business-case-item:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.17);
+  background: linear-gradient(
+    155deg,
+    rgba(255, 255, 255, 0.065),
+    rgba(255, 255, 255, 0.018)
+  );
+}
+
+/* =========================================
+   CARD INDEX AND CATEGORY
+========================================= */
+
+.slide--10 .business-case-item-top {
+  width: 100%;
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+
+  padding-bottom: 13px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.slide--10 .business-case-item-top span {
+  color: var(--value-color);
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  direction: ltr;
+  font-variant-numeric: tabular-nums;
+}
+
+.slide--10 .business-case-item-top small {
+  min-width: 0;
+  color: #91a59c;
+  font-size: clamp(9px, 0.7vw, 11px);
+  font-weight: 800;
+  letter-spacing: 0.7px;
+  line-height: 1.5;
+  text-align: left;
+  direction: ltr;
+  overflow-wrap: anywhere;
+}
+
+/* =========================================
+   ICON
+========================================= */
+
+.slide--10 .business-case-icon {
+  position: relative;
+
+  width: clamp(45px, 4vw, 54px);
+  height: clamp(45px, 4vw, 54px);
+
+  margin: clamp(16px, 1.5vw, 21px) 0 15px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+
+  color: var(--value-color);
+  background: rgba(255, 255, 255, 0.045);
+
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.015);
+}
+
+.slide--10 .business-case-icon::after {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.035);
+  border-radius: 10px;
+}
+
+.slide--10 .business-case-icon svg {
+  width: 25px;
+  height: 25px;
+
+  fill: none;
+  stroke: var(--value-color);
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* =========================================
+   CARD TEXT
+========================================= */
+
+.slide--10 .business-case-item h3 {
+  width: 100%;
+  margin: 0 0 9px;
+
+  color: #f0f6f3;
+  font-size: clamp(18px, 1.35vw, 21px);
+  font-weight: 850;
+  line-height: 1.7;
+
+  overflow-wrap: anywhere;
+}
+
+.slide--10 .business-case-item > p {
+  margin: 0;
+
+  color: #aabbb3;
+  font-size: clamp(14px, 0.95vw, 16px);
+  font-weight: 450;
+  line-height: 2;
+
+  overflow-wrap: anywhere;
+}
+
+/* =========================================
+   EXPECTED IMPACT
+========================================= */
+
+.slide--10 .business-case-impact {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  margin-top: auto;
+  padding-top: 15px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.slide--10 .business-case-impact::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  right: 0;
+  width: 35px;
+  height: 1px;
+  background: var(--value-color);
+}
+
+.slide--10 .business-case-impact span {
+  color: #8da49a;
+  font-size: 12px;
+  font-weight: 650;
+  line-height: 1.7;
+}
+
+.slide--10 .business-case-impact strong {
+  color: #e0eee8;
+  font-size: clamp(14px, 0.95vw, 16px);
+  font-weight: 800;
+  line-height: 1.85;
+  overflow-wrap: anywhere;
+}
+
+/* =========================================
+   CARD ACCENTS
+========================================= */
+
+.slide--10 .business-case-item--1 {
+  --value-color: #00a693;
+}
+
+.slide--10 .business-case-item--2 {
+  --value-color: #8b9cf6;
+}
+
+.slide--10 .business-case-item--3 {
+  --value-color: #ff8a34;
+}
+
+.slide--10 .business-case-item--4 {
+  --value-color: #d78bcb;
+}
+
+/* =========================================
+   CONCLUSION
+========================================= */
+
+.slide--10 .business-case-conclusion {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  gap: 17px;
+
+  padding: clamp(17px, 1.5vw, 21px) clamp(19px, 1.9vw, 26px);
+
+  border: 1px solid rgba(255, 138, 52, 0.22);
+  border-radius: 17px;
+
+  background: linear-gradient(
+    100deg,
+    rgba(255, 138, 52, 0.075),
+    rgba(255, 255, 255, 0.018)
+  );
+}
+
+.slide--10 .business-case-conclusion::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  width: 3px;
+  height: 100%;
+  background: rgba(255, 138, 52, 0.75);
+}
+
+.slide--10 .business-case-conclusion-symbol {
+  width: 45px;
+  height: 45px;
+  flex: 0 0 45px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(255, 138, 52, 0.27);
+  border-radius: 13px;
+
+  color: #ffb77d;
+  background: rgba(255, 138, 52, 0.12);
+
+  font-size: 24px;
+}
+
+.slide--10 .business-case-conclusion > div:last-child {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.slide--10 .business-case-conclusion span {
+  color: #d3a17c;
+  font-size: 13px;
+  font-weight: 750;
+  line-height: 1.6;
+}
+
+.slide--10 .business-case-conclusion strong {
+  color: #f5eee8;
+  font-size: clamp(17px, 1.15vw, 19px);
+  font-weight: 850;
+  line-height: 1.85;
+  overflow-wrap: anywhere;
+}
+
+/* =========================================
+   DISCLAIMER
+========================================= */
+
+.slide--10 .business-case-disclaimer {
+  position: relative;
+  margin: -3px 0 0;
+  padding-right: 13px;
+
+  color: #91a49b;
+  font-size: clamp(12px, 0.85vw, 14px);
+  line-height: 1.9;
+}
+
+.slide--10 .business-case-disclaimer::before {
+  content: '';
+  position: absolute;
+  top: 9px;
+  right: 0;
+
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+  background: #53cbb7;
+}
+
+/* =========================================
+   LAPTOP
+========================================= */
+
+@media (max-width: 1100px) {
+  .slide--10 .business-case-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .slide--10 .business-case-item {
+    min-height: 280px;
+    padding: 18px;
+  }
+
+  .slide--10 .business-case-item h3 {
+    font-size: 19px;
+  }
+
+  .slide--10 .business-case-item > p {
+    font-size: 14px;
+  }
+
+  .slide--10 .business-case-impact strong {
+    font-size: 15px;
+  }
+
+  .slide--10 .business-case-lead p {
+    font-size: 16px;
+  }
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 760px) {
+  .slide--10 .business-case-lead {
+    grid-template-columns: minmax(135px, 0.38fr) minmax(0, 1fr);
+    gap: 15px;
+    padding: 17px;
+  }
+
+  .slide--10 .business-case-lead-mark {
+    gap: 7px;
+  }
+
+  .slide--10 .business-case-lead-mark span {
+    font-size: 10px;
+  }
+
+  .slide--10 .business-case-lead-mark strong {
+    font-size: 23px;
+  }
+
+  .slide--10 .business-case-lead p {
+    font-size: 14px;
+  }
+
+  .slide--10 .business-case-item {
+    min-height: 270px;
+  }
+
+  .slide--10 .business-case-item h3 {
+    font-size: 18px;
+  }
+
+  .slide--10 .business-case-item > p {
+    font-size: 13px;
+  }
+
+  .slide--10 .business-case-impact strong {
+    font-size: 14px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .slide--10 .business-case {
+    margin-top: 13px;
+    gap: 12px;
+  }
+
+  .slide--10 .business-case-lead {
+    grid-template-columns: 1fr;
+    gap: 11px;
+    padding: 15px;
+    border-radius: 15px;
+  }
+
+  .slide--10 .business-case-lead-mark {
+    justify-content: flex-start;
+  }
+
+  .slide--10 .business-case-lead-mark span {
+    font-size: 11px;
+  }
+
+  .slide--10 .business-case-lead-mark strong {
+    font-size: 22px;
+  }
+
+  .slide--10 .business-case-lead p {
+    padding: 0;
+    border: 0;
+    font-size: 14px;
+    line-height: 1.95;
+  }
+
+  .slide--10 .business-case-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+  }
+
+  .slide--10 .business-case-item {
+    min-height: 0;
+    padding: 13px;
+    border-radius: 14px;
+  }
+
+  .slide--10 .business-case-item-top {
+    gap: 5px;
+    padding-bottom: 9px;
+  }
+
+  .slide--10 .business-case-item-top span {
+    font-size: 12px;
+  }
+
+  .slide--10 .business-case-item-top small {
+    font-size: 8px;
+    letter-spacing: 0.25px;
+  }
+
+  .slide--10 .business-case-icon {
+    width: 37px;
+    height: 37px;
+    margin: 12px 0 10px;
+    border-radius: 11px;
+  }
+
+  .slide--10 .business-case-icon svg {
+    width: 21px;
+    height: 21px;
+  }
+
+  .slide--10 .business-case-item h3 {
+    margin-bottom: 6px;
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .slide--10 .business-case-item > p {
+    font-size: 12px;
+    line-height: 1.85;
+  }
+
+  .slide--10 .business-case-impact {
+    margin-top: 13px;
+    padding-top: 10px;
+    gap: 5px;
+  }
+
+  .slide--10 .business-case-impact span {
+    font-size: 10px;
+  }
+
+  .slide--10 .business-case-impact strong {
+    font-size: 12px;
+    line-height: 1.8;
+  }
+
+  .slide--10 .business-case-conclusion {
+    padding: 14px;
+    gap: 11px;
+    border-radius: 14px;
+  }
+
+  .slide--10 .business-case-conclusion-symbol {
+    width: 37px;
+    height: 37px;
+    flex-basis: 37px;
+    font-size: 20px;
+  }
+
+  .slide--10 .business-case-conclusion span {
+    font-size: 11px;
+  }
+
+  .slide--10 .business-case-conclusion strong {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .slide--10 .business-case-disclaimer {
+    font-size: 11px;
+    line-height: 1.85;
+  }
+}
+
+/* =========================================
+   SMALL PHONES
+========================================= */
+
+@media (max-width: 390px) {
+  .slide--10 .business-case-grid {
+    grid-template-columns: 1fr;
+    gap: 9px;
+  }
+
+  .slide--10 .business-case-item {
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr);
+    column-gap: 12px;
+    align-items: start;
+    padding: 14px;
+  }
+
+  .slide--10 .business-case-item-top {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  .slide--10 .business-case-icon {
+    grid-column: 1;
+    grid-row: 2 / span 2;
+    margin: 13px 0 0;
+  }
+
+  .slide--10 .business-case-item h3 {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: end;
+    margin: 12px 0 5px;
+    font-size: 16px;
+  }
+
+  .slide--10 .business-case-item > p {
+    grid-column: 2;
+    grid-row: 3;
+    font-size: 12px;
+  }
+
+  .slide--10 .business-case-impact {
+    grid-column: 1 / -1;
+    margin-top: 12px;
+    padding-top: 10px;
+  }
+
+  .slide--10 .business-case-impact strong {
+    font-size: 13px;
+  }
+
+  .slide--10 .business-case-conclusion strong {
+    font-size: 13px;
+  }
+}
+
+/* =========================================
+   VERY COMPACT PHONES
+========================================= */
+
+@media (max-width: 360px) {
+  .slide--10 .business-case-lead {
+    padding: 13px;
+  }
+
+  .slide--10 .business-case-lead p {
+    font-size: 13px;
+  }
+
+  .slide--10 .business-case-item {
+    padding: 12px;
+    column-gap: 10px;
+  }
+
+  .slide--10 .business-case-item h3 {
+    font-size: 15px;
+  }
+
+  .slide--10 .business-case-item > p {
+    font-size: 11px;
+  }
+
+  .slide--10 .business-case-impact strong {
+    font-size: 12px;
+  }
+
+  .slide--10 .business-case-conclusion {
+    padding: 12px;
+  }
+
+  .slide--10 .business-case-conclusion strong {
+    font-size: 12px;
+  }
+
+  .slide--10 .business-case-disclaimer {
+    font-size: 10px;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .slide--10 .business-case-item {
+    transition: none;
+  }
+
+  .slide--10 .business-case-item:hover {
+    transform: none;
+  }
+}
+@media (max-width: 600px) {
+  .slide--10 .business-case-grid {
+    grid-template-columns: 1fr;
+  }
+}

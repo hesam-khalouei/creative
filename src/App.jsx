@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useLayoutEffect, useRef } from 'react';
 
 import usePresentation from './hooks/usePresentation';
 
@@ -36,8 +36,21 @@ const slides = [
 function App() {
   const presentation = usePresentation(slides.length);
 
+  const viewportRef = useRef(null);
+
   const current = slides[presentation.currentSlide];
   const CurrentSlide = current.component;
+
+  useLayoutEffect(() => {
+    const viewport = viewportRef.current;
+
+    if (!viewport) return;
+
+    // هر اسلاید جدید از ابتدای محتوای خودش نمایش داده می‌شود.
+    // خود کانتینر اسکرول در DOM باقی می‌ماند.
+    viewport.scrollTop = 0;
+    viewport.scrollLeft = 0;
+  }, [current.id]);
 
   return (
     <main className="presentation">
@@ -46,8 +59,8 @@ function App() {
       <div className="slide-glow slide-glow-primary" />
       <div className="slide-glow slide-glow-secondary" />
 
-      <div className="slide-viewport" key={current.id}>
-        <CurrentSlide />
+      <div ref={viewportRef} className="slide-viewport">
+        <CurrentSlide key={current.id} />
       </div>
 
       <SlideNavigation

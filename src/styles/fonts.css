@@ -1,18 +1,13 @@
+/* IranYekanX variable font — one source of truth for Persian UI text. */
 @font-face {
   font-family: 'IranYekanX';
   src: url('/fonts/iranyekanx/IRANYekanXVF.woff2') format('woff2');
-  font-weight: 100 900;
   font-style: normal;
+  font-weight: 100 900;
   font-display: swap;
 }
 
-html,
-body {
-  font-family: 'IranYekanX', sans-serif;
-  font-weight: 400;
+:root {
+  font-family: 'IranYekanX', Tahoma, Arial, sans-serif;
   font-synthesis: none;
-}
-
-* {
-  font-family: inherit;
 }

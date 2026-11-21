@@ -1,0 +1,962 @@
+/* =========================================================
+   SLIDE 04 — EDITORIAL PREMIUM
+   Organizational Reach
+   Shared Card Visual Language
+========================================================= */
+
+.slide--4 {
+  --reach-text: #f3fbf8;
+  --reach-muted: #b6d0c7;
+  --reach-subtle: #8fa99f;
+  --reach-mint: #53f5d0;
+  --reach-orange: #ffad70;
+  --reach-line: rgba(190, 239, 222, 0.13);
+}
+
+/* =========================================================
+   SLIDE TYPOGRAPHY
+========================================================= */
+
+.slide--4 .slide-inner {
+  width: 100%;
+  max-width: 1540px;
+  min-width: 0;
+}
+
+.slide--4 .slide-title {
+  max-width: 1050px;
+  margin: 14px 0 12px;
+  color: var(--reach-text);
+  font-size: clamp(42px, 4.2vw, 60px);
+  font-weight: 900;
+  line-height: 1.45;
+  letter-spacing: -0.035em;
+  overflow-wrap: anywhere;
+}
+
+.slide--4 .slide-description {
+  max-width: 900px;
+  color: var(--reach-muted);
+  font-size: clamp(17px, 1.25vw, 20px);
+  line-height: 1.9;
+  overflow-wrap: anywhere;
+}
+
+.slide--4 .slide-content {
+  min-width: 0;
+  margin-top: clamp(22px, 3vh, 36px);
+}
+
+/* =========================================================
+   MAIN LAYOUT
+========================================================= */
+
+.slide--4 .reach-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+  gap: 18px;
+  width: 100%;
+  min-width: 0;
+  align-items: stretch;
+}
+
+/* =========================================================
+   SHARED CARD VISUAL LANGUAGE
+   Accent line + corner detail + subtle surface
+========================================================= */
+
+.slide--4 .reach-insight,
+.slide--4 .reach-chart-panel {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.slide--4 .reach-insight::before,
+.slide--4 .reach-chart-panel::before {
+  content: '';
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  right: 28px;
+  width: 76px;
+  height: 3px;
+  border-radius: 0 0 5px 5px;
+  background: linear-gradient(90deg, transparent, var(--reach-mint));
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.slide--4 .reach-chart-panel::before {
+  right: auto;
+  left: 28px;
+  background: linear-gradient(90deg, var(--reach-orange), transparent);
+}
+
+.slide--4 .reach-insight::after,
+.slide--4 .reach-chart-panel::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(
+    circle at top left,
+    rgba(83, 245, 208, 0.075),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.slide--4 .reach-chart-panel::after {
+  left: auto;
+  right: 0;
+  background: radial-gradient(
+    circle at top right,
+    rgba(255, 173, 112, 0.065),
+    transparent 70%
+  );
+}
+
+/* =========================================================
+   INSIGHT CARD
+========================================================= */
+
+.slide--4 .reach-insight {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 100%;
+  padding: clamp(22px, 2.5vw, 34px);
+  border: 1px solid rgba(83, 245, 208, 0.2);
+  border-radius: 25px;
+  background:
+    radial-gradient(circle at 12% 88%, rgba(0, 166, 147, 0.2), transparent 42%),
+    linear-gradient(145deg, #103c35 0%, #082923 100%);
+}
+
+.slide--4 .reach-insight::after {
+  content: '77';
+  position: absolute;
+  z-index: -1;
+  left: -12px;
+  bottom: -55px;
+  width: auto;
+  height: auto;
+  color: rgba(255, 255, 255, 0.025);
+  font-size: clamp(150px, 17vw, 240px);
+  font-weight: 950;
+  line-height: 1;
+  direction: ltr;
+  background: none;
+  pointer-events: none;
+}
+
+/* Card header */
+
+.slide--4 .reach-insight-top {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.slide--4 .reach-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #8debd7;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  line-height: 1.7;
+}
+
+.slide--4 .reach-kicker::before {
+  content: '';
+  display: inline-block;
+  flex: 0 0 6px;
+  width: 6px;
+  height: 6px;
+  border-radius: 2px;
+  background: var(--reach-mint);
+  box-shadow: 0 0 9px rgba(83, 245, 208, 0.45);
+}
+
+.slide--4 .reach-index {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 9px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 7px;
+  color: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.035);
+  font-size: 11px;
+  direction: ltr;
+}
+
+/* Main insight */
+
+.slide--4 .reach-insight-main {
+  position: relative;
+  z-index: 1;
+  margin-top: auto;
+  padding-top: 38px;
+}
+
+.slide--4 .reach-insight-label {
+  display: block;
+  color: #a7c8bd;
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1.8;
+}
+
+.slide--4 .reach-share {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  margin-top: 8px;
+  color: var(--reach-mint);
+  font-size: clamp(66px, 7.2vw, 100px);
+  font-weight: 950;
+  line-height: 1.15;
+  letter-spacing: -0.065em;
+  direction: ltr;
+}
+
+.slide--4 .reach-share span {
+  font-size: 0.4em;
+  letter-spacing: 0;
+}
+
+.slide--4 .reach-insight-main h3 {
+  max-width: 420px;
+  margin-top: 13px;
+  color: var(--reach-text);
+  font-size: clamp(24px, 2vw, 31px);
+  font-weight: 850;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+.slide--4 .reach-insight-main p {
+  max-width: 430px;
+  margin-top: 9px;
+  color: rgba(235, 248, 243, 0.72);
+  font-size: clamp(14px, 0.95vw, 16px);
+  line-height: 2;
+  overflow-wrap: anywhere;
+}
+
+/* =========================================================
+   FOCUS UNITS — SECONDARY CARDS
+========================================================= */
+
+.slide--4 .reach-focus-units {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-top: 25px;
+}
+
+.slide--4 .reach-focus-unit {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-width: 0;
+  padding: 13px 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.045);
+  transition:
+    border-color 180ms ease,
+    background 180ms ease,
+    transform 180ms ease;
+}
+
+.slide--4 .reach-focus-unit::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 3px;
+  height: 100%;
+  border-radius: 3px 0 0 3px;
+  background: var(--reach-mint);
+  opacity: 0.8;
+}
+
+.slide--4 .reach-focus-unit--orange::after {
+  background: var(--reach-orange);
+}
+
+.slide--4 .reach-focus-unit:hover {
+  border-color: rgba(83, 245, 208, 0.3);
+  background: rgba(255, 255, 255, 0.07);
+  transform: translateY(-2px);
+}
+
+.slide--4 .reach-unit-dot {
+  flex: 0 0 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.slide--4 .reach-focus-unit--mint .reach-unit-dot {
+  background: var(--reach-mint);
+  box-shadow: 0 0 11px rgba(83, 245, 208, 0.45);
+}
+
+.slide--4 .reach-focus-unit--orange .reach-unit-dot {
+  background: var(--reach-orange);
+  box-shadow: 0 0 11px rgba(255, 173, 112, 0.4);
+}
+
+.slide--4 .reach-focus-copy {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.slide--4 .reach-focus-copy strong {
+  color: var(--reach-text);
+  font-size: 15px;
+  font-weight: 750;
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+
+.slide--4 .reach-focus-copy span {
+  color: #9ab9ae;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.slide--4 .reach-focus-unit > b {
+  flex: 0 0 auto;
+  color: var(--reach-mint);
+  font-size: 15px;
+  font-weight: 850;
+  direction: ltr;
+}
+
+/* =========================================================
+   INSIGHT FOOTER
+========================================================= */
+
+.slide--4 .reach-insight-footer {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 21px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(235, 248, 243, 0.65);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.slide--4 .reach-insight-footer strong {
+  color: #8debd7;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+/* =========================================================
+   DISTRIBUTION CARD
+========================================================= */
+
+.slide--4 .reach-chart-panel {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: clamp(22px, 2.5vw, 34px);
+  border: 1px solid var(--reach-line);
+  border-radius: 25px;
+  background: linear-gradient(
+    145deg,
+    rgba(13, 48, 42, 0.96),
+    rgba(6, 30, 27, 0.98)
+  );
+}
+
+/* Chart card header */
+
+.slide--4 .reach-chart-header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 14px;
+  padding-bottom: 19px;
+  border-bottom: 1px solid var(--reach-line);
+}
+
+.slide--4 .reach-chart-header h3 {
+  margin-top: 8px;
+  color: var(--reach-text);
+  font-size: clamp(21px, 1.8vw, 27px);
+  font-weight: 850;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.slide--4 .reach-chart-header p {
+  margin-top: 5px;
+  color: var(--reach-subtle);
+  font-size: clamp(13px, 0.85vw, 14px);
+  line-height: 1.8;
+}
+
+.slide--4 .reach-total {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  padding: 8px 11px;
+  border: 1px solid rgba(83, 245, 208, 0.13);
+  border-radius: 10px;
+  background: rgba(83, 245, 208, 0.045);
+}
+
+.slide--4 .reach-total strong {
+  color: var(--reach-mint);
+  font-size: clamp(29px, 2.5vw, 38px);
+  font-weight: 950;
+  line-height: 1.3;
+  direction: ltr;
+}
+
+.slide--4 .reach-total span {
+  color: #8daaa0;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* =========================================================
+   RANKED BARS
+========================================================= */
+
+.slide--4 .reach-bars {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 12px;
+  min-width: 0;
+  padding-top: 19px;
+}
+
+.slide--4 .reach-bar-row {
+  min-width: 0;
+}
+
+.slide--4 .reach-bar-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  margin-bottom: 7px;
+}
+
+.slide--4 .reach-bar-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.slide--4 .reach-rank {
+  display: grid;
+  flex: 0 0 24px;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 7px;
+  color: #8ba89e;
+  background: rgba(255, 255, 255, 0.055);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.slide--4 .reach-rank.primary {
+  border-color: rgba(83, 245, 208, 0.17);
+  color: var(--reach-mint);
+  background: rgba(83, 245, 208, 0.11);
+}
+
+.slide--4 .reach-bar-name > span:last-child {
+  min-width: 0;
+  color: #d9e9e2;
+  font-size: clamp(14px, 0.95vw, 16px);
+  font-weight: 650;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.slide--4 .reach-bar-value {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 8px;
+  direction: ltr;
+}
+
+.slide--4 .reach-bar-value strong {
+  color: var(--reach-text);
+  font-size: 15px;
+  font-weight: 850;
+}
+
+.slide--4 .reach-bar-value span {
+  min-width: 42px;
+  color: #8ba89e;
+  font-size: 13px;
+  text-align: left;
+}
+
+.slide--4 .reach-track {
+  width: 100%;
+  height: 7px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.07);
+  direction: ltr;
+}
+
+.slide--4 .reach-fill {
+  height: 100%;
+  min-width: 3px;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #147f70, #2eb39a);
+  transition: width 0.55s ease;
+}
+
+.slide--4 .reach-fill.mint {
+  background: linear-gradient(90deg, #078f7d, #53f5d0);
+  box-shadow: 0 0 12px rgba(83, 245, 208, 0.2);
+}
+
+.slide--4 .reach-fill.orange {
+  background: linear-gradient(90deg, #bd632e, #ffad70);
+}
+
+/* =========================================================
+   CHART FOOTER
+========================================================= */
+
+.slide--4 .reach-chart-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 19px;
+  padding-top: 13px;
+  border-top: 1px solid rgba(190, 239, 222, 0.1);
+  color: #819e94;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+/* =========================================================
+   CLOSING STATEMENT
+========================================================= */
+
+.slide--4 .reach-bottom-line {
+  position: relative;
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 19px;
+  overflow: hidden;
+  border: 1px solid rgba(83, 245, 208, 0.15);
+  border-radius: 16px;
+  background: rgba(0, 166, 147, 0.055);
+}
+
+.slide--4 .reach-bottom-line::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--reach-mint);
+  opacity: 0.75;
+}
+
+.slide--4 .reach-bottom-symbol {
+  display: grid;
+  flex: 0 0 36px;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(83, 245, 208, 0.18);
+  border-radius: 10px;
+  color: var(--reach-mint);
+  background: rgba(83, 245, 208, 0.1);
+  font-size: 21px;
+}
+
+.slide--4 .reach-bottom-line p {
+  color: var(--reach-muted);
+  font-size: clamp(14px, 0.95vw, 16px);
+  line-height: 1.9;
+  overflow-wrap: anywhere;
+}
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (max-width: 1200px) {
+  .slide--4 .slide-title {
+    font-size: clamp(38px, 4.5vw, 52px);
+  }
+
+  .slide--4 .reach-layout {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 14px;
+  }
+
+  .slide--4 .reach-insight,
+  .slide--4 .reach-chart-panel {
+    padding: 22px;
+  }
+
+  .slide--4 .reach-share {
+    font-size: clamp(62px, 7vw, 86px);
+  }
+
+  .slide--4 .reach-bars {
+    gap: 10px;
+  }
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+  .slide--4 .slide-title {
+    font-size: clamp(34px, 5vw, 46px);
+  }
+
+  .slide--4 .slide-description {
+    font-size: clamp(15px, 1.8vw, 17px);
+  }
+
+  .slide--4 .reach-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .slide--4 .reach-insight {
+    min-height: auto;
+  }
+
+  .slide--4 .reach-insight-main {
+    padding-top: 30px;
+  }
+
+  .slide--4 .reach-share {
+    font-size: clamp(72px, 12vw, 100px);
+  }
+
+  .slide--4 .reach-insight-main h3 {
+    font-size: clamp(23px, 3vw, 29px);
+  }
+
+  .slide--4 .reach-focus-units {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .slide--4 .reach-bars {
+    gap: 13px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+  .slide--4 .slide-title {
+    font-size: clamp(31px, 8vw, 42px);
+    line-height: 1.5;
+    margin-top: 12px;
+    margin-bottom: 10px;
+  }
+
+  .slide--4 .slide-description {
+    font-size: clamp(14px, 3.7vw, 16px);
+    line-height: 1.95;
+  }
+
+  .slide--4 .slide-content {
+    margin-top: 20px;
+  }
+
+  .slide--4 .reach-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .slide--4 .reach-insight,
+  .slide--4 .reach-chart-panel {
+    padding: 19px;
+    border-radius: 20px;
+  }
+
+  .slide--4 .reach-insight::before,
+  .slide--4 .reach-chart-panel::before {
+    right: 20px;
+    left: auto;
+    width: 58px;
+  }
+
+  .slide--4 .reach-chart-panel::before {
+    left: 20px;
+    right: auto;
+  }
+
+  .slide--4 .reach-insight-main {
+    padding-top: 28px;
+  }
+
+  .slide--4 .reach-kicker {
+    font-size: 10px;
+  }
+
+  .slide--4 .reach-index {
+    font-size: 10px;
+    padding: 4px 7px;
+  }
+
+  .slide--4 .reach-insight-label {
+    font-size: 13px;
+  }
+
+  .slide--4 .reach-share {
+    margin-top: 5px;
+    font-size: clamp(66px, 19vw, 88px);
+  }
+
+  .slide--4 .reach-insight-main h3 {
+    margin-top: 9px;
+    font-size: clamp(21px, 5.8vw, 25px);
+    line-height: 1.8;
+  }
+
+  .slide--4 .reach-insight-main p {
+    font-size: 14px;
+    line-height: 2;
+  }
+
+  .slide--4 .reach-focus-units {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+    margin-top: 19px;
+  }
+
+  .slide--4 .reach-focus-unit {
+    padding: 11px 13px;
+  }
+
+  .slide--4 .reach-focus-copy strong {
+    font-size: 14px;
+  }
+
+  .slide--4 .reach-focus-copy span {
+    font-size: 12px;
+  }
+
+  .slide--4 .reach-focus-unit > b {
+    font-size: 14px;
+  }
+
+  .slide--4 .reach-insight-footer {
+    align-items: flex-start;
+    flex-direction: column;
+    margin-top: 17px;
+    font-size: 12px;
+  }
+
+  .slide--4 .reach-insight-footer strong {
+    font-size: 13px;
+  }
+
+  .slide--4 .reach-chart-header {
+    gap: 9px;
+    padding-bottom: 15px;
+  }
+
+  .slide--4 .reach-chart-header h3 {
+    font-size: 20px;
+  }
+
+  .slide--4 .reach-chart-header p {
+    max-width: 220px;
+    font-size: 12px;
+  }
+
+  .slide--4 .reach-total {
+    padding: 6px 8px;
+  }
+
+  .slide--4 .reach-total strong {
+    font-size: 25px;
+  }
+
+  .slide--4 .reach-total span {
+    font-size: 12px;
+  }
+
+  .slide--4 .reach-bars {
+    gap: 13px;
+    padding-top: 16px;
+  }
+
+  .slide--4 .reach-bar-meta {
+    gap: 6px;
+  }
+
+  .slide--4 .reach-bar-name {
+    gap: 6px;
+  }
+
+  .slide--4 .reach-rank {
+    flex-basis: 22px;
+    width: 22px;
+    height: 22px;
+    font-size: 10px;
+  }
+
+  .slide--4 .reach-bar-name > span:last-child {
+    font-size: 13px;
+  }
+
+  .slide--4 .reach-bar-value {
+    gap: 5px;
+  }
+
+  .slide--4 .reach-bar-value strong {
+    font-size: 13px;
+  }
+
+  .slide--4 .reach-bar-value span {
+    min-width: 36px;
+    font-size: 11px;
+  }
+
+  .slide--4 .reach-track {
+    height: 6px;
+  }
+
+  .slide--4 .reach-chart-footer {
+    align-items: flex-start;
+    flex-direction: column;
+    margin-top: 16px;
+    font-size: 11px;
+  }
+
+  .slide--4 .reach-bottom-line {
+    align-items: flex-start;
+    gap: 10px;
+    padding: 13px;
+  }
+
+  .slide--4 .reach-bottom-line p {
+    font-size: 13px;
+  }
+}
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 380px) {
+  .slide--4 .slide-title {
+    font-size: 31px;
+  }
+
+  .slide--4 .slide-description {
+    font-size: 14px;
+  }
+
+  .slide--4 .reach-insight,
+  .slide--4 .reach-chart-panel {
+    padding: 16px;
+  }
+
+  .slide--4 .reach-kicker {
+    font-size: 9px;
+  }
+
+  .slide--4 .reach-share {
+    font-size: 64px;
+  }
+
+  .slide--4 .reach-insight-main h3 {
+    font-size: 21px;
+  }
+
+  .slide--4 .reach-insight-main p {
+    font-size: 13px;
+  }
+
+  .slide--4 .reach-bar-name > span:last-child {
+    font-size: 12px;
+  }
+
+  .slide--4 .reach-bar-value strong {
+    font-size: 12px;
+  }
+
+  .slide--4 .reach-rank {
+    flex-basis: 20px;
+    width: 20px;
+    height: 20px;
+  }
+
+  .slide--4 .reach-bottom-line p {
+    font-size: 12px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .slide--4 .reach-fill,
+  .slide--4 .reach-focus-unit {
+    transition: none;
+  }
+
+  .slide--4 .reach-focus-unit:hover {
+    transform: none;
+  }
+}

@@ -1,122 +1,152 @@
 import React from 'react';
 import SlideContainer from '../components/layout/SlideContainer';
+import '../styles/slides/slide-11.css';
 
-function Slide11CompensationReview() {
-  const roleGroups = [
-    {
-      role: 'مدیریت تیم خلاقیت',
-      subtitle: 'Creative Leadership',
-      criteria: [
-        'مسئولیت راهبری و جهت‌دهی تخصصی',
-        'مدیریت ظرفیت و اولویت‌های تیم',
-        'اثرگذاری بین‌واحدی و پاسخ‌گویی مدیریتی',
-      ],
-      accent: 'secondary',
-    },
-    {
-      role: 'تیم لید طراحی محصول',
-      subtitle: 'Product Design Team Lead',
-      criteria: [
-        'هدایت تخصصی و هماهنگی اجرای کار',
-        'کیفیت تصمیم‌های طراحی و حل مسئله',
-        'مربی‌گری و توسعه توانمندی اعضا',
-      ],
-      accent: 'primary',
-    },
-    {
-      role: 'کارشناسان ارشد تخصصی',
-      subtitle: 'Senior Specialists',
-      criteria: [
-        'عمق تخصص و پیچیدگی مسائل حل‌شده',
-        'مالکیت خروجی و کیفیت تحویل',
-        'استقلال حرفه‌ای و اثرگذاری تخصصی',
-      ],
-      accent: 'primary',
-    },
-  ];
+const principles = [
+  {
+    number: '01',
+    title: 'سطح تخصص و تجربه',
+    description: 'تناسب جبران خدمات با سطح حرفه‌ای و عمق تخصص هر نقش',
+  },
+  {
+    number: '02',
+    title: 'دامنه مسئولیت',
+    description: 'میزان مالکیت کار، پیچیدگی تصمیم‌ها و پاسخ‌گویی',
+  },
+  {
+    number: '03',
+    title: 'اثرگذاری سازمانی',
+    description: 'دامنه همکاری بین‌واحدی و تأثیر نقش بر محصول و برند',
+  },
+  {
+    number: '04',
+    title: 'عدالت درون‌تیمی',
+    description: 'تناسب دریافتی‌ها با تفاوت نقش‌ها و مسیر رشد حرفه‌ای',
+  },
+];
 
+const roles = [
+  {
+    title: 'مدیریت و راهبری',
+    people: 'صدرا بهبودی',
+    note: 'هدایت تیم و هم‌راستاسازی',
+    color: '#8B9CF6',
+  },
+  {
+    title: 'لید طراحی محصول',
+    people: 'علیرضا خطیبی',
+    note: 'راهبری تخصصی و هدایت طراحی محصول',
+    color: '#53CBB7',
+  },
+  {
+    title: 'طراحی محصول',
+    people: 'امیرحسام خالویی · مینا شافعی · افسانه میررستمی',
+    note: 'طراحی تجربه و راهکارهای محصول',
+    color: '#00A693',
+  },
+  {
+    title: 'طراحی گرافیک',
+    people: 'امیرحسین فراهانی · مهران سلطان محمدی',
+    note: 'هویت و ارتباطات بصری',
+    color: '#FF8A34',
+  },
+  {
+    title: 'موشن گرافیک',
+    people: 'پارسا نوایی',
+    note: 'تجربه‌های متحرک و روایت بصری',
+    color: '#D78BCB',
+  },
+];
+
+export default function Slide11CompensationReview() {
   return (
     <SlideContainer
       slideNumber={11}
       totalSlides={12}
       eyebrow="10 / COMPENSATION REVIEW"
-      title="بازنگری حقوق؛ متناسب با نقش، مسئولیت و اثرگذاری"
-      description="پیشنهاد می‌شود بازنگری جبران خدمات برای تمام اعضای تیم انجام شود، اما مبنای ارزیابی و میزان تعدیل برای هر نقش متناسب با مسئولیت‌های آن باشد."
+      title="بازنگری حقوق؛ متناسب با نقش و سطح مسئولیت"
+      description="پیشنهاد بازبینی جبران خدمات تمام اعضای تیم، با رویکردی متمایز و مبتنی بر نقش"
     >
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-8">
-        {roleGroups.map((group) => (
-          <div key={group.role} className="surface-card p-6">
-            <div
-              className={`text-xs font-bold ${
-                group.accent === 'secondary'
-                  ? 'text-secondary'
-                  : 'text-primary-300'
-              }`}
-            >
-              {group.subtitle}
-            </div>
-
-            <h3 className="text-xl font-black mt-4 min-h-[3.5rem]">
-              {group.role}
-            </h3>
-
-            <div className="h-px bg-white/10 my-5" />
-
-            <ul className="space-y-4">
-              {group.criteria.map((criterion) => (
-                <li
-                  key={criterion}
-                  className="flex items-start gap-3 text-sm text-white/65 leading-7"
-                >
-                  <span className="text-primary-300 mt-1">◆</span>
-                  <span>{criterion}</span>
-                </li>
-              ))}
-            </ul>
+      <section className="comp-review">
+        <div className="comp-review-request">
+          <div className="comp-request-copy">
+            <span className="comp-kicker">THE PROPOSAL</span>
+            <h3>بازنگری برای تمام اعضای تیم</h3>
+            <p>
+              نه یک درصد یکسان؛ بلکه تصمیمی متناسب با سطح حرفه‌ای، مسئولیت و
+              ارزش هر نقش.
+            </p>
           </div>
-        ))}
-      </div>
 
-      <div className="surface-card p-6 mt-6">
-        <h3 className="font-black text-lg mb-4">
-          مبانی پیشنهادی برای تعیین میزان بازنگری
-        </h3>
-
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {[
-            'سطح مسئولیت',
-            'تخصص و مهارت',
-            'پیچیدگی کار',
-            'مالکیت و اثرگذاری',
-          ].map((item, index) => (
-            <div
-              key={item}
-              className="rounded-xl bg-white/5 border border-white/10 p-4 text-center"
-            >
-              <div className="text-primary-300 font-black text-xl">
-                0{index + 1}
-              </div>
-              <div className="text-sm font-bold mt-2">{item}</div>
+          <div className="comp-request-visual">
+            <div className="comp-request-number">
+              {new Intl.NumberFormat('fa-IR', {
+                useGrouping: false,
+              }).format(8)}
             </div>
-          ))}
+            <div className="comp-request-caption">
+              <strong>عضو تیم</strong>
+              <span>در دامنه بازنگری</span>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div className="mt-6 border border-secondary/25 bg-secondary/8 rounded-2xl p-5">
-        <p className="text-sm md:text-base leading-8 text-white/80">
-          <strong className="text-secondary">درخواست مشخص:</strong> بررسی حقوق
-          تمام اعضای تیم و تعیین تعدیل متناسب با نقش و شرایط هر فرد، بر اساس
-          ارزیابی عملکرد، دامنه مسئولیت، ساختار حقوقی سازمان و معیارهای بازار.
-        </p>
-      </div>
+        <div className="comp-review-content">
+          <div className="comp-principles">
+            <div className="comp-section-heading">
+              <span className="comp-kicker">REVIEW CRITERIA</span>
+              <h3>مبنای تصمیم‌گیری</h3>
+            </div>
 
-      <p className="text-xs text-white/35 mt-4 leading-6">
-        درصد افزایش برای هر فرد در این مرحله تعیین نمی‌شود؛ تعیین عدد نهایی
-        نیازمند بررسی حقوق فعلی، بازه‌های حقوقی، بودجه و معیارهای منابع انسانی
-        است.
-      </p>
+            {principles.map((item) => (
+              <div className="comp-principle" key={item.number}>
+                <span>{item.number}</span>
+                <div>
+                  <strong>{item.title}</strong>
+                  <p>{item.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="comp-role-map">
+            <div className="comp-section-heading">
+              <span className="comp-kicker">ROLE DIFFERENTIATION</span>
+              <h3>تنوع نقش‌های تخصصی تیم</h3>
+            </div>
+
+            <div className="comp-role-list">
+              {roles.map((role) => (
+                <div className="comp-role" key={role.title}>
+                  <span
+                    className="comp-role-marker"
+                    style={{ background: role.color }}
+                  />
+                  <div className="comp-role-main">
+                    <strong>{role.title}</strong>
+                    <span>{role.people}</span>
+                    <small>{role.note}</small>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="comp-review-bottom">
+          <div className="comp-review-bottom-mark">✓</div>
+          <div>
+            <span>درخواست مشخص</span>
+            <strong>
+              بررسی و اصلاح سطح حقوق تمام اعضا بر اساس ارزیابی تفکیکی نقش‌ها
+            </strong>
+          </div>
+          <p>
+            تعیین درصد نهایی پس از بررسی سطح فعلی حقوق، بازه‌های بازار و ساختار
+            جبران خدمات شرکت انجام شود.
+          </p>
+        </div>
+      </section>
     </SlideContainer>
   );
 }
-
-export default Slide11CompensationReview;

@@ -1,92 +1,147 @@
 import React from 'react';
 import SlideContainer from '../components/layout/SlideContainer';
 import { jiraMetrics } from '../data/metrics';
+import '../styles/slides/slide-06.css';
 
-function Slide06Performance() {
-  const statuses = [
-    { name: 'Done', value: 757, color: 'bg-primary' },
-    { name: 'Closed', value: 24, color: 'bg-primary-700' },
-    { name: 'Canceled', value: 48, color: 'bg-secondary' },
-    { name: 'In Progress', value: 15, color: 'bg-blue-400' },
-    { name: 'QUEUE', value: 6, color: 'bg-purple-400' },
-    { name: 'New', value: 3, color: 'bg-white/50' },
-    { name: 'Pending', value: 3, color: 'bg-white/30' },
-  ];
+const statusData = [
+  { name: 'Done', label: 'انجام‌شده', value: 757, color: '#00A693' },
+  { name: 'Closed', label: 'بسته‌شده', value: 24, color: '#53CBB7' },
+  { name: 'Canceled', label: 'لغوشده', value: 48, color: '#FF8A34' },
+  { name: 'In Progress', label: 'در حال انجام', value: 15, color: '#6B9CFF' },
+  { name: 'QUEUE', label: 'در صف', value: 6, color: '#A78BFA' },
+  { name: 'New', label: 'جدید', value: 3, color: '#D5A6E8' },
+  { name: 'Pending', label: 'در انتظار', value: 3, color: '#8B929E' },
+];
+
+const formatNumber = (value) => new Intl.NumberFormat('fa-IR').format(value);
+
+export default function Slide06Performance() {
+  const total = jiraMetrics.teamAssignedRequests;
+  const doneOrClosed = jiraMetrics.doneOrClosed;
+  const ratio = (doneOrClosed / total) * 100;
+  const remaining = total - doneOrClosed;
+
+  let offset = 0;
+  const segments = statusData.map((item) => {
+    const start = offset;
+    offset += (item.value / total) * 100;
+    return `${item.color} ${start}% ${offset}%`;
+  });
+
+  const ringStyle = {
+    background: `conic-gradient(${segments.join(', ')})`,
+  };
 
   return (
     <SlideContainer
       slideNumber={6}
       totalSlides={12}
-      eyebrow="05 / PERFORMANCE"
-      title="تصویر عملکرد در جریان کار"
-      description="وضعیت فعلی درخواست‌های تخصیص‌یافته به تیم در Jira، نمایی از حجم کارهای تعیین‌تکلیف‌شده و درخواست‌های باز ارائه می‌کند."
+      eyebrow="05 / DELIVERY STATUS"
+      title="وضعیت درخواست‌ها در Jira"
+      description="تصویری از وضعیت فعلی ۸۵۶ درخواست تخصیص‌یافته به اعضای تیم"
     >
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-7">
-        <div className="surface-card p-6">
-          <div className="text-primary-300 text-sm font-bold">DONE</div>
-          <div className="text-4xl font-black mt-4">
-            {jiraMetrics.completedStatus.toLocaleString('fa-IR')}
-          </div>
-          <p className="text-sm text-white/45 mt-2">درخواست با وضعیت Done</p>
-        </div>
+      <section className="status-dashboard">
+        <div className="status-main">
+          <div className="status-hero">
+            <div className="status-hero-top">
+              <span className="status-kicker">وضعیت Done و Closed</span>
+              <span className="status-index">01 / 02</span>
+            </div>
 
-        <div className="surface-card p-6">
-          <div className="text-primary-300 text-sm font-bold">CLOSED</div>
-          <div className="text-4xl font-black mt-4">
-            {jiraMetrics.closedStatus.toLocaleString('fa-IR')}
-          </div>
-          <p className="text-sm text-white/45 mt-2">درخواست با وضعیت Closed</p>
-        </div>
-
-        <div className="surface-card p-6">
-          <div className="text-secondary text-sm font-bold">DONE + CLOSED</div>
-          <div className="text-4xl font-black mt-4 text-secondary">
-            {jiraMetrics.doneOrClosedRatio.toLocaleString('fa-IR')}٪
-          </div>
-          <p className="text-sm text-white/45 mt-2">
-            سهم درخواست‌های دارای یکی از این دو وضعیت
-          </p>
-        </div>
-      </div>
-
-      <div className="surface-card p-6 mt-6">
-        <div className="flex flex-wrap justify-between items-center gap-3 mb-6">
-          <h3 className="font-black text-lg">توزیع وضعیت درخواست‌ها</h3>
-          <span className="text-xs text-white/40">مجموع: ۸۵۶ درخواست</span>
-        </div>
-
-        <div className="flex h-5 overflow-hidden rounded-full bg-white/10">
-          {statuses.map((status) => (
-            <div
-              key={status.name}
-              className={`${status.color} h-full`}
-              style={{ width: `${(status.value / 856) * 100}%` }}
-              title={`${status.name}: ${status.value}`}
-            />
-          ))}
-        </div>
-
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-7">
-          {statuses.map((status) => (
-            <div key={status.name} className="flex items-center gap-3">
-              <span className={`w-3 h-3 rounded-sm shrink-0 ${status.color}`} />
-              <div>
-                <div className="text-sm text-white/65">{status.name}</div>
-                <div className="font-bold tabular-nums">
-                  {status.value.toLocaleString('fa-IR')}
+            <div className="status-ring-wrap">
+              <div className="status-ring" style={ringStyle}>
+                <div className="status-ring-inner">
+                  <strong>{formatNumber(ratio.toFixed(1))}٪</strong>
+                  <span>از درخواست‌ها</span>
                 </div>
               </div>
             </div>
-          ))}
-        </div>
-      </div>
 
-      <p className="text-xs text-white/35 mt-5 leading-6">
-        وضعیت‌ها، آخرین وضعیت ثبت‌شده در داده‌های Jira هستند. Done و Closed
-        به‌تنهایی نشان‌دهنده کیفیت خروجی یا موفقیت تجاری نیستند.
-      </p>
+            <div className="status-hero-bottom">
+              <div>
+                <strong>{formatNumber(doneOrClosed)}</strong>
+                <span>درخواست در وضعیت Done یا Closed</span>
+              </div>
+              <div className="status-hero-divider" />
+              <div>
+                <strong>{formatNumber(remaining)}</strong>
+                <span>در سایر وضعیت‌ها</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="status-breakdown">
+            <div className="status-breakdown-heading">
+              <div>
+                <span className="status-kicker">BREAKDOWN</span>
+                <h3>جزئیات وضعیت‌ها</h3>
+              </div>
+              <span className="status-total">
+                {formatNumber(total)} درخواست
+              </span>
+            </div>
+
+            <div className="status-list">
+              {statusData.map((item, index) => {
+                const percentage = (item.value / total) * 100;
+
+                return (
+                  <div className="status-row" key={item.name}>
+                    <div
+                      className="status-dot"
+                      style={{ backgroundColor: item.color }}
+                    />
+                    <span className="status-row-name">{item.label}</span>
+                    <div className="status-row-track">
+                      <div
+                        className="status-row-fill"
+                        style={{
+                          width: `${percentage}%`,
+                          backgroundColor: item.color,
+                        }}
+                      />
+                    </div>
+                    <strong className="status-row-value">
+                      {formatNumber(item.value)}
+                    </strong>
+                    <span className="status-row-percent">
+                      {formatNumber(percentage.toFixed(1))}٪
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
+        <div className="status-footer">
+          <div className="status-footer-title">
+            <span className="status-kicker">STATUS DISTRIBUTION</span>
+            <strong>توزیع کل درخواست‌ها</strong>
+          </div>
+
+          <div className="status-segmented-bar">
+            {statusData.map((item) => (
+              <div
+                key={item.name}
+                title={`${item.label}: ${formatNumber(item.value)}`}
+                style={{
+                  width: `${(item.value / total) * 100}%`,
+                  backgroundColor: item.color,
+                }}
+              />
+            ))}
+          </div>
+
+          <div className="status-footer-note">
+            <span className="status-note-mark" />
+            <p>
+              این اعداد وضعیت ثبت‌شده در Jira را نشان می‌دهند؛ نه به‌تنهایی
+              کیفیت خروجی یا موفقیت تجاری پروژه‌ها را.
+            </p>
+          </div>
+        </div>
+      </section>
     </SlideContainer>
   );
 }
-
-export default Slide06Performance;

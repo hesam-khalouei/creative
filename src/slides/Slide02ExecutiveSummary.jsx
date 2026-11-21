@@ -1,112 +1,166 @@
 import React from 'react';
 import SlideContainer from '../components/layout/SlideContainer';
-import MetricCard from '../components/ui/MetricCard';
+import '../styles/slides/slide-02.css';
+
+const formatMetric = (value) =>
+  value.replace(/\d+(?:\.\d+)?/g, (number) =>
+    new Intl.NumberFormat('fa-IR', {
+      maximumFractionDigits: 1,
+    }).format(Number(number)),
+  );
+
+const metrics = [
+  {
+    value: '856',
+    label: 'درخواست تخصیص‌یافته',
+    detail: 'درخواست‌های ثبت‌شده و تخصیص‌یافته به اعضای تیم',
+    accent: 'mint',
+    index: '01',
+  },
+  {
+    value: '11',
+    label: 'واحد سازمانی',
+    detail: 'واحدهایی که از تیم خدمات دریافت کرده‌اند',
+    accent: 'orange',
+    index: '02',
+  },
+  {
+    value: '77.9٪',
+    label: 'مارکتینگ و محصول',
+    detail: 'سهم این دو واحد از درخواست‌های تیم',
+    accent: 'mint',
+    index: '03',
+  },
+  {
+    value: '91.2٪',
+    label: 'Done یا Closed',
+    detail: 'وضعیت فعلی درخواست‌ها در زمان استخراج داده',
+    accent: 'orange',
+    index: '04',
+  },
+];
+
+const pillars = [
+  {
+    number: '01',
+    title: 'تجربه محصول',
+    description: 'طراحی تجربه، رابط کاربری و جریان‌های تعاملی',
+    accent: 'mint',
+  },
+  {
+    number: '02',
+    title: 'هویت بصری و برند',
+    description: 'طراحی گرافیک، تصویرسازی و ارتباطات بصری',
+    accent: 'orange',
+  },
+  {
+    number: '03',
+    title: 'محتوا و حرکت',
+    description: 'موشن گرافیک و تولید دارایی‌های متحرک',
+    accent: 'mint',
+  },
+];
 
 function Slide02ExecutiveSummary() {
   return (
     <SlideContainer
       slideNumber={2}
       totalSlides={12}
+      className="executive-summary-slide"
       eyebrow="01 / EXECUTIVE SUMMARY"
       title="خلاقیت، فراتر از یک واحد اجرایی"
       description="تیم خلاقیت و طراحی محصول، یک ظرفیت تخصصی میان‌سازمانی است که تجربه محصول، هویت بصری و ارتباطات برند را به هم متصل می‌کند."
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 mt-8">
-        <MetricCard
-          value="856"
-          label="درخواست تخصیص‌یافته به اعضای تیم"
-          accent="primary"
-        />
+      <div className="summary-editorial">
+        {/* Key metrics */}
+        <section className="summary-metrics" aria-label="شاخص‌های کلیدی">
+          {metrics.map((metric) => (
+            <article
+              className={`summary-metric summary-metric--${metric.accent}`}
+              key={metric.index}
+            >
+              <div className="summary-metric-top">
+                <span className="summary-metric-index">{metric.index}</span>
 
-        <MetricCard
-          value="11"
-          label="واحد سازمانی دریافت‌کننده خدمات"
-          accent="secondary"
-        />
+                <span className="summary-metric-mark" aria-hidden="true" />
+              </div>
 
-        <MetricCard
-          value="77.9٪"
-          label="سهم مارکتینگ و محصول از درخواست‌ها"
-          accent="primary"
-        />
+              <div className="summary-metric-value">
+                {formatMetric(metric.value)}
+              </div>
 
-        <MetricCard
-          value="91.2٪"
-          label="درخواست‌های دارای وضعیت Done یا Closed"
-          accent="secondary"
-        />
-      </div>
+              <h3 className="summary-metric-label">{metric.label}</h3>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 mt-6">
-        <div className="surface-card p-6 lg:col-span-7">
-          <div className="text-primary-300 text-sm font-bold mb-3">
-            THE CORE MESSAGE
-          </div>
+              <p className="summary-metric-detail">{metric.detail}</p>
+            </article>
+          ))}
+        </section>
 
-          <h3 className="text-2xl md:text-3xl font-black leading-relaxed">
-            تیم خلاقیت فقط پاسخ‌گوی درخواست‌ها نیست؛
-            <span className="text-gradient">
-              {' '}
-              در شکل‌گیری تجربه محصول و تصویر برند نقش دارد.
-            </span>
-          </h3>
+        {/* Editorial lower section */}
+        <section className="summary-lower">
+          <article className="summary-message">
+            <div className="summary-section-kicker">
+              <span className="summary-kicker-line" />
+              THE CORE MESSAGE
+            </div>
 
-          <p className="text-white/55 text-sm leading-8 mt-5">
-            گستره درخواست‌ها از طراحی محصول و رابط کاربری تا گرافیک، تصویرسازی و
-            موشن نشان می‌دهد که این تیم با چندین جریان کلیدی کسب‌وکار در ارتباط
-            است.
-          </p>
-        </div>
-
-        <div className="surface-card p-6 lg:col-span-5">
-          <div className="text-secondary text-sm font-bold mb-4">
-            THREE STRATEGIC PILLARS
-          </div>
-
-          <div className="space-y-5">
-            <div className="flex items-start gap-4">
-              <div className="w-10 h-10 shrink-0 rounded-xl bg-primary/15 text-primary-300 flex items-center justify-center font-black">
+            <div className="summary-message-body">
+              <span className="summary-message-index" aria-hidden="true">
                 01
-              </div>
-              <div>
-                <h4 className="font-bold">تجربه محصول</h4>
-                <p className="text-sm text-white/50 mt-1 leading-7">
-                  طراحی تجربه، رابط کاربری و جریان‌های تعاملی
-                </p>
-              </div>
+              </span>
+
+              <h3>
+                تیم خلاقیت فقط پاسخ‌گوی درخواست‌ها نیست؛
+                <span> در شکل‌گیری تجربه محصول و تصویر برند نقش دارد.</span>
+              </h3>
+
+              <p>
+                گستره درخواست‌ها از طراحی محصول و رابط کاربری تا گرافیک،
+                تصویرسازی و موشن نشان می‌دهد که این تیم با چندین جریان کلیدی
+                کسب‌وکار در ارتباط است.
+              </p>
             </div>
 
-            <div className="flex items-start gap-4">
-              <div className="w-10 h-10 shrink-0 rounded-xl bg-secondary/15 text-secondary flex items-center justify-center font-black">
-                02
-              </div>
-              <div>
-                <h4 className="font-bold">هویت بصری و برند</h4>
-                <p className="text-sm text-white/50 mt-1 leading-7">
-                  طراحی گرافیک، تصویرسازی و ارتباطات بصری
-                </p>
-              </div>
+            <div className="summary-message-footer">
+              <span className="summary-footer-dot" />
+              یک ظرفیت تخصصی با اثرگذاری میان‌واحدی
+            </div>
+          </article>
+
+          <aside className="summary-pillars">
+            <div className="summary-section-kicker summary-section-kicker--orange">
+              <span className="summary-kicker-line" />
+              THREE STRATEGIC PILLARS
             </div>
 
-            <div className="flex items-start gap-4">
-              <div className="w-10 h-10 shrink-0 rounded-xl bg-primary/15 text-primary-300 flex items-center justify-center font-black">
-                03
-              </div>
-              <div>
-                <h4 className="font-bold">محتوا و حرکت</h4>
-                <p className="text-sm text-white/50 mt-1 leading-7">
-                  موشن گرافیک و تولید دارایی‌های متحرک
-                </p>
-              </div>
+            <div className="summary-pillar-list">
+              {pillars.map((pillar) => (
+                <div
+                  className={`summary-pillar summary-pillar--${pillar.accent}`}
+                  key={pillar.number}
+                >
+                  <span className="summary-pillar-number">{pillar.number}</span>
+
+                  <div className="summary-pillar-copy">
+                    <h4>{pillar.title}</h4>
+                    <p>{pillar.description}</p>
+                  </div>
+
+                  <span className="summary-pillar-arrow" aria-hidden="true">
+                    ↗
+                  </span>
+                </div>
+              ))}
             </div>
-          </div>
-        </div>
+          </aside>
+        </section>
+
+        {/* Data source */}
+        <p className="summary-footnote">
+          مبنا: داده‌های ثبت‌شده در Jira از فروردین ۱۴۰۴ تا آبان ۱۴۰۵. وضعیت
+          Done و Closed صرفاً وضعیت فعلی درخواست‌هاست و معادل موفقیت تجاری نیست.
+        </p>
       </div>
-
-      <p className="text-xs text-white/35 leading-6 mt-5">
-        مبنا: داده‌های ثبت‌شده در Jira از فروردین ۱۴۰۴ تا آبان ۱۴۰۵. وضعیت Done
-        و Closed صرفاً وضعیت فعلی درخواست‌هاست و معادل موفقیت تجاری نیست.
-      </p>
     </SlideContainer>
   );
 }

@@ -1,82 +1,129 @@
 import React from 'react';
 import SlideContainer from '../components/layout/SlideContainer';
 import { requestTypes } from '../data/metrics';
+import '../styles/slides/slide-05.css';
+
+const fa = (value) => Number(value).toLocaleString('fa-IR');
+
+const serviceDetails = [
+  {
+    title: 'اصلاحات',
+    subtitle: 'بهبود و اصلاح خروجی‌های طراحی',
+    icon: '↗',
+    tone: 'mint',
+  },
+  {
+    title: 'گرافیک سوشال',
+    subtitle: 'محتوای بصری شبکه‌های اجتماعی',
+    icon: '✳',
+    tone: 'orange',
+  },
+  {
+    title: 'طراحی سرویس',
+    subtitle: 'طراحی راهکار و تجربه خدمات',
+    icon: '⌘',
+    tone: 'blue',
+  },
+];
 
 function Slide05CreativeSpectrum() {
-  const topRequests = requestTypes.slice(0, 12);
-  const maxValue = Math.max(...topRequests.map((item) => item.value));
+  const services = [...requestTypes]
+    .filter((item) => item.value > 0)
+    .sort((a, b) => b.value - a.value);
+
+  const featured = services.slice(0, 3);
+  const remaining = services.slice(3, 12);
+  const total = services.reduce((sum, item) => sum + item.value, 0);
 
   return (
     <SlideContainer
       slideNumber={5}
       totalSlides={12}
       eyebrow="04 / CREATIVE SPECTRUM"
-      title="یک تیم، طیفی از تخصص‌های خلاق"
-      description="تنوع درخواست‌ها نشان می‌دهد دامنه فعالیت تیم از طراحی محصول تا هویت بصری، گرافیک، تصویرسازی و محتوای متحرک امتداد دارد."
+      title="طیف خدمات؛ از تجربه محصول تا ارتباطات بصری"
+      description="تنوع درخواست‌های ثبت‌شده، گستره‌ای از خدمات طراحی محصول، گرافیک، تصویرسازی و تولید محتوای بصری را نشان می‌دهد."
     >
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 mt-7">
-        <div className="lg:col-span-8 surface-card p-6">
-          <div className="flex items-center justify-between gap-3 mb-6">
-            <h3 className="font-black text-lg">پرتکرارترین انواع درخواست</h3>
-            <span className="text-xs text-white/40">
-              ۱۲ دسته اول از ۲۸ نوع درخواست
+      <div className="spectrum-layout">
+        {/* Featured services */}
+        <div className="spectrum-featured">
+          {featured.map((service, index) => {
+            const detail = serviceDetails[index];
+
+            return (
+              <article
+                className={`spectrum-feature spectrum-${detail.tone}`}
+                key={service.name}
+              >
+                <div className="spectrum-feature-top">
+                  <span className="spectrum-feature-index">0{index + 1}</span>
+                  <span className="spectrum-feature-icon">{detail.icon}</span>
+                </div>
+
+                <div className="spectrum-feature-bottom">
+                  <span className="spectrum-feature-label">TOP SERVICE</span>
+                  <h3>{service.name}</h3>
+                  <p>{detail.subtitle}</p>
+                  <div className="spectrum-feature-count">
+                    <strong>{fa(service.value)}</strong>
+                    <span>درخواست</span>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+
+        {/* Other services */}
+        <section className="spectrum-catalog">
+          <div className="spectrum-catalog-heading">
+            <div>
+              <span className="spectrum-kicker">SERVICE CATALOG</span>
+              <h3>دیگر حوزه‌های تخصصی</h3>
+            </div>
+            <span className="spectrum-catalog-count">
+              {fa(services.length)} دسته خدمت
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-7 gap-y-5">
-            {topRequests.map((item, index) => (
-              <div key={item.name}>
-                <div className="flex justify-between gap-3 text-sm mb-2">
-                  <span className="text-white/75">{item.name}</span>
-                  <strong className="text-white tabular-nums">
-                    {item.value.toLocaleString('fa-IR')}
-                  </strong>
-                </div>
-                <div className="h-2 rounded-full bg-white/8 overflow-hidden">
-                  <div
-                    className={`h-full rounded-full ${
-                      index < 3 ? 'bg-secondary' : 'bg-primary'
-                    }`}
-                    style={{
-                      width: `${(item.value / maxValue) * 100}%`,
-                    }}
-                  />
-                </div>
+          <div className="spectrum-service-grid">
+            {remaining.map((service, index) => (
+              <div className="spectrum-service-item" key={service.name}>
+                <span className="spectrum-service-index">
+                  {fa(index + 4).padStart(2, '۰')}
+                </span>
+                <span className="spectrum-service-name">{service.name}</span>
+                <strong>{fa(service.value)}</strong>
               </div>
             ))}
           </div>
-        </div>
 
-        <div className="lg:col-span-4 flex flex-col gap-5">
-          <div className="surface-card p-6 flex-1">
-            <div className="text-secondary text-sm font-bold">
-              PRODUCT DESIGN
+          <div className="spectrum-catalog-footer">
+            <span>بر اساس تعداد درخواست‌های ثبت‌شده</span>
+            <span>۱۲ خدمت پرتکرار</span>
+          </div>
+        </section>
+
+        {/* Summary strip */}
+        <div className="spectrum-summary">
+          <div className="spectrum-summary-intro">
+            <span className="spectrum-summary-mark">✳</span>
+            <div>
+              <strong>تنوع تخصص، یک ظرفیت مشترک</strong>
+              <span>مجموعه‌ای از مهارت‌های مکمل در خدمت نیازهای سازمان</span>
             </div>
-            <h3 className="text-2xl font-black mt-4">طراحی تجربه محصول</h3>
-            <p className="text-sm text-white/55 leading-8 mt-3">
-              طراحی سرویس، آیکون، یوزرفلو، رابط کاربری، لندینگ پیج و طراحی
-              سیستم.
-            </p>
           </div>
 
-          <div className="surface-card p-6 flex-1">
-            <div className="text-primary-300 text-sm font-bold">
-              VISUAL & CONTENT
-            </div>
-            <h3 className="text-2xl font-black mt-4">هویت بصری و محتوا</h3>
-            <p className="text-sm text-white/55 leading-8 mt-3">
-              گرافیک سوشال، تصویرسازی، پوستر، طراحی کارت، موشن و دارایی‌های بصری
-              برند.
-            </p>
+          <div className="spectrum-summary-stat">
+            <strong>{fa(total)}</strong>
+            <span>درخواست در دسته‌های دارای ثبت</span>
           </div>
         </div>
+
+        <p className="spectrum-note">
+          این نمایش، ۱۲ دسته پرتکرار از میان دسته‌های ثبت‌شده در Jira را نشان
+          می‌دهد؛ تعداد درخواست‌ها معادل تعداد پروژه‌های مستقل نیست.
+        </p>
       </div>
-
-      <p className="text-xs text-white/35 mt-5 leading-6">
-        نمودار، ۱۲ نوع پرتکرار از مجموع ۲۸ نوع درخواست ثبت‌شده را نمایش می‌دهد.
-        تعداد درخواست‌ها نشان‌دهنده فراوانی ثبت هر نوع خدمت است، نه پیچیدگی یا
-        زمان موردنیاز آن.
-      </p>
     </SlideContainer>
   );
 }

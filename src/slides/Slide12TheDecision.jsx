@@ -1,88 +1,118 @@
 import React from 'react';
 import SlideContainer from '../components/layout/SlideContainer';
+import '../styles/slides/slide-12.css';
 
-function Slide12TheDecision() {
-  const decisions = [
-    {
-      number: '01',
-      title: 'تأیید بازنگری حقوق اعضای تیم',
-      description:
-        'بررسی حقوق تمام اعضا و تعیین تعدیل متناسب با سطح نقش، مسئولیت و شرایط هر فرد.',
-    },
-    {
-      number: '02',
-      title: 'توسعه جایگاه سازمانی تیم',
-      description:
-        'به‌رسمیت‌شناختن نقش میان‌واحدی تیم و ایجاد دسترسی مؤثرتر به تصمیم‌گیران محصول و مارکتینگ.',
-    },
-    {
-      number: '03',
-      title: 'مشارکت در اولویت‌بندی',
-      description:
-        'تعریف سازوکار مشترک برای تعیین اولویت درخواست‌ها و مدیریت ظرفیت تخصصی تیم.',
-    },
-    {
-      number: '04',
-      title: 'تثبیت استانداردهای طراحی',
-      description:
-        'ایجاد چارچوب مشخص برای کیفیت، انسجام بصری و تجربه محصول در سطح سازمان.',
-    },
-  ];
+const decisions = [
+  {
+    number: '01',
+    title: 'بازنگری حقوق اعضای تیم',
+    description:
+      'بررسی و اصلاح جبران خدمات هر ۸ عضو، متناسب با نقش، سطح تخصص و مسئولیت',
+    tag: 'COMPENSATION',
+    accent: 'teal',
+  },
+  {
+    number: '02',
+    title: 'تعیین جایگاه سازمانی',
+    description:
+      'به‌رسمیت‌شناختن تیم به‌عنوان یک ظرفیت تخصصی فرابخشی در سازمان',
+    tag: 'ORGANIZATION',
+    accent: 'orange',
+  },
+  {
+    number: '03',
+    title: 'تعریف اختیارات و مسئولیت‌ها',
+    description:
+      'شفاف‌سازی مرز تصمیم‌گیری، تأییدها و مالکیت استانداردهای طراحی',
+    tag: 'AUTHORITY',
+    accent: 'blue',
+  },
+  {
+    number: '04',
+    title: 'تثبیت مشارکت در تصمیم‌ها',
+    description:
+      'حضور به‌موقع تیم در تصمیم‌های مرتبط با محصول، مارکتینگ و تجربه مشتری',
+    tag: 'COLLABORATION',
+    accent: 'purple',
+  },
+];
 
+export default function Slide12Decision() {
   return (
     <SlideContainer
       slideNumber={12}
       totalSlides={12}
-      eyebrow="11 / THE DECISION"
-      title="برای گام بعدی، به چند تصمیم روشن نیاز داریم"
-      description="هدف این ارائه صرفاً گزارش عملکرد گذشته نیست؛ هدف، توافق بر سر مسیر توسعه تیم و استفاده مؤثرتر از ظرفیت تخصصی آن است."
+      eyebrow="11 / THE WAY FORWARD"
+      title="برای قدم بعدی، به چهار تصمیم روشن نیاز داریم"
+      description="هدف، فقط تقویت یک تیم نیست؛ استفاده مؤثرتر از ظرفیت طراحی در کل سازمان است."
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-8">
-        {decisions.map((item, index) => (
-          <div key={item.number} className="surface-card p-6 md:p-7">
-            <div className="flex items-center justify-between">
-              <span
-                className={`text-3xl font-black ${
-                  index === 0 || index === 2
-                    ? 'text-secondary'
-                    : 'text-primary-300'
-                }`}
+      <section className="decision-slide">
+        <div className="decision-main">
+          <div className="decision-list">
+            {decisions.map((item) => (
+              <article
+                className={`decision-item decision-item--${item.accent}`}
+                key={item.number}
               >
-                {item.number}
-              </span>
-              <span className="text-xs text-white/35">MANAGEMENT ACTION</span>
+                <div className="decision-number">{item.number}</div>
+                <div className="decision-copy">
+                  <span className="decision-tag">{item.tag}</span>
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                </div>
+                <div className="decision-arrow">←</div>
+              </article>
+            ))}
+          </div>
+
+          <aside className="decision-aside">
+            <div className="decision-aside-top">
+              <span className="decision-kicker">THE REQUEST</span>
+              <div className="decision-orbit">
+                <div className="decision-orbit-inner">
+                  <span>DESIGN</span>
+                  <strong>+</strong>
+                  <span>BUSINESS</span>
+                </div>
+              </div>
             </div>
 
-            <h3 className="text-xl font-black mt-5">{item.title}</h3>
-            <p className="text-sm text-white/55 leading-8 mt-3">
-              {item.description}
-            </p>
-          </div>
-        ))}
-      </div>
+            <div className="decision-aside-copy">
+              <span>از اجرا تا اثرگذاری</span>
+              <h3>
+                طراحی باید
+                <br />
+                در زمان درست،
+                <br />
+                در تصمیم درست
+                <br />
+                حضور داشته باشد.
+              </h3>
+            </div>
 
-      <div className="mt-7 rounded-2xl p-7 md:p-9 text-center border border-primary/30 bg-gradient-to-br from-primary/15 to-secondary/5">
-        <div className="text-primary-300 text-sm font-bold tracking-widest">
-          OUR NEXT CHAPTER
+            <div className="decision-aside-footer">
+              <span className="decision-dot" />
+              <span>یک ظرفیت تخصصی برای تمام سازمان</span>
+            </div>
+          </aside>
         </div>
 
-        <h2 className="text-2xl md:text-4xl font-black leading-relaxed mt-5">
-          از یک تیم پاسخ‌گو
-          <br />
-          به یک ظرفیت اثرگذار در سازمان
-        </h2>
+        <div className="decision-next-step">
+          <div className="decision-next-icon">→</div>
+          <div className="decision-next-copy">
+            <span>گام اجرایی پیشنهادی</span>
+            <strong>
+              تشکیل جلسه مشترک مدیریت، منابع انسانی، مالی، محصول و مارکتینگ
+            </strong>
+          </div>
+          <div className="decision-next-label">NEXT STEP</div>
+        </div>
 
-        <p className="text-white/55 mt-5 text-sm md:text-base">
-          Creativity is not a support function. It's a business driver.
-        </p>
-      </div>
-
-      <div className="flex justify-between items-center mt-6 text-xs text-white/40">
-        <span>تیم خلاقیت و طراحی محصول</span>
-        <span>پایان ارائه | ۱۲ اسلاید</span>
-      </div>
+        <div className="decision-closing">
+          <span>CREATIVE & PRODUCT DESIGN</span>
+          <strong>از طراحی خروجی، به طراحی ارزش.</strong>
+        </div>
+      </section>
     </SlideContainer>
   );
 }
-
-export default Slide12TheDecision;

@@ -1,0 +1,827 @@
+/* =========================================
+   SLIDE 05 — CREATIVE SPECTRUM
+   Editorial Premium / Unified Card System
+========================================= */
+
+.slide--5 .spectrum-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.96fr);
+  gap: clamp(16px, 1.7vw, 24px);
+  width: 100%;
+  min-width: 0;
+}
+
+/* =========================================
+   FEATURED SERVICES
+========================================= */
+
+.slide--5 .spectrum-featured {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: minmax(205px, 1.08fr) minmax(185px, 0.92fr);
+  gap: clamp(12px, 1.2vw, 17px);
+  min-width: 0;
+  min-height: 0;
+}
+
+.slide--5 .spectrum-feature {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 0;
+  min-height: 0;
+  padding: clamp(20px, 2vw, 28px);
+  overflow: hidden;
+  isolation: isolate;
+
+  border: 1px solid rgba(190, 239, 222, 0.15);
+  border-radius: 22px;
+
+  background:
+    radial-gradient(
+      circle at 8% 100%,
+      rgba(83, 245, 208, 0.12),
+      transparent 48%
+    ),
+    linear-gradient(145deg, #103e36, #082923);
+
+  box-shadow: 0 12px 32px rgba(0, 12, 11, 0.13);
+
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+/* Unified card accent */
+
+.slide--5 .spectrum-feature::before {
+  content: '';
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  right: 22px;
+  left: 22px;
+  height: 3px;
+  border-radius: 0 0 8px 8px;
+  background: linear-gradient(
+    90deg,
+    rgba(83, 245, 208, 0.12),
+    #53f5d0,
+    rgba(83, 245, 208, 0.12)
+  );
+  opacity: 0.85;
+}
+
+.slide--5 .spectrum-feature:first-child {
+  grid-column: 1 / -1;
+  min-height: 0;
+}
+
+.slide--5 .spectrum-feature:hover {
+  transform: translateY(-3px);
+  border-color: rgba(83, 245, 208, 0.3);
+  box-shadow: 0 18px 38px rgba(0, 12, 11, 0.22);
+}
+
+/* Decorative geometry */
+
+.slide--5 .spectrum-feature::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  width: 190px;
+  height: 190px;
+  left: -78px;
+  bottom: -112px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 18px rgba(255, 255, 255, 0.02),
+    0 0 0 40px rgba(255, 255, 255, 0.014),
+    0 0 0 64px rgba(255, 255, 255, 0.009);
+  pointer-events: none;
+}
+
+.slide--5 .spectrum-mint {
+  border-color: rgba(83, 245, 208, 0.25);
+  background:
+    radial-gradient(
+      circle at 10% 90%,
+      rgba(83, 245, 208, 0.19),
+      transparent 48%
+    ),
+    linear-gradient(145deg, #104b41, #062b26);
+}
+
+.slide--5 .spectrum-orange {
+  border-color: rgba(255, 173, 112, 0.23);
+  background:
+    radial-gradient(
+      circle at 10% 90%,
+      rgba(255, 138, 52, 0.17),
+      transparent 48%
+    ),
+    linear-gradient(145deg, #493123, #241f1b);
+}
+
+.slide--5 .spectrum-blue {
+  border-color: rgba(140, 199, 255, 0.2);
+  background:
+    radial-gradient(
+      circle at 10% 90%,
+      rgba(110, 173, 255, 0.16),
+      transparent 48%
+    ),
+    linear-gradient(145deg, #193b48, #0a292f);
+}
+
+/* Card top */
+
+.slide--5 .spectrum-feature-top {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.slide--5 .spectrum-feature-index {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 30px;
+  padding: 0 9px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 9px;
+  color: rgba(255, 255, 255, 0.65);
+  background: rgba(255, 255, 255, 0.055);
+  font-size: 11px;
+  font-weight: 800;
+  direction: ltr;
+  font-variant-numeric: tabular-nums;
+}
+
+.slide--5 .spectrum-feature-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 46px;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(83, 245, 208, 0.2);
+  border-radius: 15px;
+  color: #53f5d0;
+  background: rgba(83, 245, 208, 0.11);
+  font-size: 24px;
+}
+
+.slide--5 .spectrum-orange .spectrum-feature-icon {
+  color: #ffb171;
+  border-color: rgba(255, 173, 112, 0.2);
+  background: rgba(255, 173, 112, 0.1);
+}
+
+.slide--5 .spectrum-blue .spectrum-feature-icon {
+  color: #8cc7ff;
+  border-color: rgba(140, 199, 255, 0.2);
+  background: rgba(110, 173, 255, 0.1);
+}
+
+/* Card content */
+
+.slide--5 .spectrum-feature-bottom {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+  margin-top: 22px;
+}
+
+.slide--5 .spectrum-feature-label,
+.slide--5 .spectrum-kicker {
+  display: inline-block;
+  color: #8debd7;
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+}
+
+.slide--5 .spectrum-orange .spectrum-feature-label {
+  color: #ffb171;
+}
+
+.slide--5 .spectrum-blue .spectrum-feature-label {
+  color: #8cc7ff;
+}
+
+.slide--5 .spectrum-feature h3 {
+  margin-top: 9px;
+  color: #f3fbf8;
+  font-size: clamp(20px, 1.65vw, 25px);
+  font-weight: 900;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+
+.slide--5 .spectrum-feature p {
+  max-width: 440px;
+  margin-top: 7px;
+  color: rgba(235, 248, 243, 0.75);
+  font-size: clamp(14px, 0.95vw, 16px);
+  line-height: 1.9;
+  overflow-wrap: anywhere;
+}
+
+/* Feature count */
+
+.slide--5 .spectrum-feature-count {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.slide--5 .spectrum-feature-count strong {
+  color: #53f5d0;
+  font-size: clamp(30px, 2.5vw, 38px);
+  font-weight: 950;
+  line-height: 1.3;
+  font-variant-numeric: tabular-nums;
+}
+
+.slide--5 .spectrum-orange .spectrum-feature-count strong {
+  color: #ffb171;
+}
+
+.slide--5 .spectrum-blue .spectrum-feature-count strong {
+  color: #8cc7ff;
+}
+
+.slide--5 .spectrum-feature-count span {
+  color: rgba(235, 248, 243, 0.72);
+  font-size: 13px;
+}
+
+/* =========================================
+   SERVICE CATALOG
+========================================= */
+
+.slide--5 .spectrum-catalog {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  padding: clamp(22px, 2.2vw, 30px);
+  overflow: hidden;
+  isolation: isolate;
+
+  border: 1px solid rgba(190, 239, 222, 0.15);
+  border-radius: 23px;
+
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(83, 245, 208, 0.085),
+      transparent 40%
+    ),
+    linear-gradient(145deg, rgba(13, 57, 50, 0.96), rgba(5, 30, 28, 0.98));
+
+  box-shadow: 0 14px 35px rgba(0, 12, 11, 0.14);
+}
+
+/* Matching accent line */
+
+.slide--5 .spectrum-catalog::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 24px;
+  left: 24px;
+  height: 3px;
+  border-radius: 0 0 8px 8px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(83, 245, 208, 0.65),
+    transparent
+  );
+}
+
+/* Catalog heading */
+
+.slide--5 .spectrum-catalog-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  padding-bottom: 19px;
+  border-bottom: 1px solid rgba(190, 239, 222, 0.14);
+}
+
+.slide--5 .spectrum-catalog-heading > div {
+  min-width: 0;
+}
+
+.slide--5 .spectrum-kicker {
+  color: #8debd7;
+}
+
+.slide--5 .spectrum-catalog-heading h3 {
+  margin-top: 9px;
+  color: #f3fbf8;
+  font-size: clamp(20px, 1.55vw, 24px);
+  font-weight: 900;
+  line-height: 1.65;
+}
+
+.slide--5 .spectrum-catalog-count {
+  flex: 0 0 auto;
+  padding: 8px 11px;
+  border: 1px solid rgba(83, 245, 208, 0.18);
+  border-radius: 10px;
+  color: #7ce8d0;
+  background: rgba(83, 245, 208, 0.08);
+  font-size: 12px;
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+/* Catalog items */
+
+.slide--5 .spectrum-service-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: clamp(12px, 1.4vw, 20px);
+  padding-top: 11px;
+}
+
+.slide--5 .spectrum-service-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  min-height: 54px;
+  padding-block: 8px;
+  border-bottom: 1px solid rgba(190, 239, 222, 0.09);
+}
+
+.slide--5 .spectrum-service-index {
+  display: grid;
+  place-items: center;
+  flex: 0 0 27px;
+  width: 27px;
+  height: 27px;
+  border: 1px solid rgba(190, 239, 222, 0.1);
+  border-radius: 9px;
+  color: #a7c4b9;
+  background: rgba(255, 255, 255, 0.055);
+  font-size: 11px;
+  font-weight: 750;
+}
+
+.slide--5 .spectrum-service-name {
+  flex: 1;
+  min-width: 0;
+  color: #e0eee8;
+  font-size: clamp(13px, 0.95vw, 15px);
+  font-weight: 600;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+.slide--5 .spectrum-service-item strong {
+  flex: 0 0 auto;
+  color: #f3fbf8;
+  font-size: 14px;
+  font-weight: 850;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Catalog footer */
+
+.slide--5 .spectrum-catalog-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 9px 14px;
+  margin-top: auto;
+  padding-top: 18px;
+  color: #a1b9af;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+/* =========================================
+   SUMMARY STRIP
+========================================= */
+
+.slide--5 .spectrum-summary {
+  position: relative;
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-width: 0;
+  padding: clamp(17px, 1.7vw, 23px) clamp(20px, 2.1vw, 29px);
+  overflow: hidden;
+
+  border: 1px solid rgba(83, 245, 208, 0.18);
+  border-radius: 19px;
+
+  background: linear-gradient(
+    105deg,
+    rgba(0, 166, 147, 0.11),
+    rgba(255, 138, 52, 0.055)
+  );
+}
+
+.slide--5 .spectrum-summary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 24px;
+  left: 24px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(83, 245, 208, 0.6),
+    transparent
+  );
+}
+
+.slide--5 .spectrum-summary-intro {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+.slide--5 .spectrum-summary-mark {
+  display: grid;
+  place-items: center;
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(83, 245, 208, 0.2);
+  border-radius: 14px;
+  color: #53f5d0;
+  background: rgba(83, 245, 208, 0.1);
+  font-size: 22px;
+}
+
+.slide--5 .spectrum-summary-intro div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.slide--5 .spectrum-summary-intro strong {
+  color: #f3fbf8;
+  font-size: clamp(14px, 1vw, 16px);
+  font-weight: 800;
+  line-height: 1.8;
+}
+
+.slide--5 .spectrum-summary-intro span {
+  color: #abc4b9;
+  font-size: clamp(13px, 0.9vw, 14px);
+  line-height: 1.8;
+}
+
+.slide--5 .spectrum-summary-stat {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 9px;
+  flex: 0 0 auto;
+}
+
+.slide--5 .spectrum-summary-stat strong {
+  color: #53f5d0;
+  font-size: clamp(27px, 2.2vw, 34px);
+  font-weight: 950;
+  line-height: 1.3;
+  font-variant-numeric: tabular-nums;
+}
+
+.slide--5 .spectrum-summary-stat span {
+  color: #a8c1b6;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* Note */
+
+.slide--5 .spectrum-note {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding-inline: 3px;
+  color: rgba(190, 215, 205, 0.75);
+  font-size: clamp(13px, 0.9vw, 14px);
+  line-height: 2;
+  overflow-wrap: anywhere;
+}
+
+/* =========================================
+   LARGE SCREENS
+========================================= */
+
+@media (min-width: 1500px) {
+  .slide--5 .spectrum-layout {
+    gap: 24px;
+  }
+
+  .slide--5 .spectrum-featured {
+    gap: 17px;
+  }
+
+  .slide--5 .spectrum-feature {
+    padding: 29px;
+  }
+
+  .slide--5 .spectrum-service-item {
+    min-height: 57px;
+  }
+}
+
+/* =========================================
+   LAPTOP / TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+  .slide--5 .spectrum-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 17px;
+  }
+
+  .slide--5 .spectrum-featured {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: minmax(220px, auto);
+  }
+
+  .slide--5 .spectrum-feature:first-child {
+    grid-column: auto;
+  }
+
+  .slide--5 .spectrum-feature {
+    min-height: 220px;
+    padding: 21px;
+  }
+
+  .slide--5 .spectrum-feature h3 {
+    font-size: clamp(19px, 2.2vw, 24px);
+  }
+
+  .slide--5 .spectrum-feature p {
+    font-size: 14px;
+  }
+
+  .slide--5 .spectrum-catalog {
+    min-height: 0;
+  }
+
+  .slide--5 .spectrum-service-name {
+    font-size: 14px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+  .slide--5 .spectrum-layout {
+    gap: 13px;
+  }
+
+  .slide--5 .spectrum-featured {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: auto;
+    gap: 11px;
+  }
+
+  .slide--5 .spectrum-feature:first-child {
+    grid-column: 1 / -1;
+    min-height: 205px;
+  }
+
+  .slide--5 .spectrum-feature {
+    min-height: 190px;
+    padding: 17px;
+    border-radius: 19px;
+  }
+
+  .slide--5 .spectrum-feature::before {
+    right: 17px;
+    left: 17px;
+  }
+
+  .slide--5 .spectrum-feature-index {
+    min-width: 32px;
+    height: 27px;
+    font-size: 10px;
+  }
+
+  .slide--5 .spectrum-feature-icon {
+    flex-basis: 39px;
+    width: 39px;
+    height: 39px;
+    border-radius: 12px;
+    font-size: 21px;
+  }
+
+  .slide--5 .spectrum-feature-bottom {
+    margin-top: 16px;
+  }
+
+  .slide--5 .spectrum-feature-label,
+  .slide--5 .spectrum-kicker {
+    font-size: 10px;
+  }
+
+  .slide--5 .spectrum-feature h3 {
+    font-size: clamp(18px, 5.8vw, 22px);
+    line-height: 1.65;
+  }
+
+  .slide--5 .spectrum-feature p {
+    font-size: 13px;
+    line-height: 1.85;
+  }
+
+  .slide--5 .spectrum-feature-count {
+    gap: 7px;
+    margin-top: 11px;
+  }
+
+  .slide--5 .spectrum-feature-count strong {
+    font-size: 27px;
+  }
+
+  .slide--5 .spectrum-feature-count span {
+    font-size: 12px;
+  }
+
+  /* Catalog */
+
+  .slide--5 .spectrum-catalog {
+    padding: 19px;
+    border-radius: 20px;
+  }
+
+  .slide--5 .spectrum-catalog-heading {
+    gap: 10px;
+    padding-bottom: 15px;
+  }
+
+  .slide--5 .spectrum-catalog-heading h3 {
+    font-size: 21px;
+  }
+
+  .slide--5 .spectrum-catalog-count {
+    padding: 7px 9px;
+    font-size: 11px;
+  }
+
+  .slide--5 .spectrum-service-grid {
+    grid-template-columns: minmax(0, 1fr);
+    padding-top: 9px;
+  }
+
+  .slide--5 .spectrum-service-item {
+    min-height: 49px;
+    gap: 10px;
+  }
+
+  .slide--5 .spectrum-service-index {
+    flex-basis: 26px;
+    width: 26px;
+    height: 26px;
+    font-size: 10px;
+  }
+
+  .slide--5 .spectrum-service-name {
+    font-size: 14px;
+  }
+
+  .slide--5 .spectrum-service-item strong {
+    font-size: 13px;
+  }
+
+  .slide--5 .spectrum-catalog-footer {
+    margin-top: 15px;
+    padding-top: 14px;
+    font-size: 11px;
+  }
+
+  /* Summary */
+
+  .slide--5 .spectrum-summary {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+    padding: 17px;
+    border-radius: 18px;
+  }
+
+  .slide--5 .spectrum-summary-intro {
+    align-items: flex-start;
+    gap: 11px;
+  }
+
+  .slide--5 .spectrum-summary-mark {
+    flex-basis: 40px;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    font-size: 20px;
+  }
+
+  .slide--5 .spectrum-summary-intro strong {
+    font-size: 14px;
+  }
+
+  .slide--5 .spectrum-summary-intro span {
+    font-size: 13px;
+  }
+
+  .slide--5 .spectrum-summary-stat {
+    padding-inline-start: 51px;
+  }
+
+  .slide--5 .spectrum-summary-stat strong {
+    font-size: 27px;
+  }
+
+  .slide--5 .spectrum-summary-stat span {
+    font-size: 12px;
+  }
+
+  .slide--5 .spectrum-note {
+    font-size: 13px;
+    line-height: 2;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 390px) {
+  .slide--5 .spectrum-featured {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .slide--5 .spectrum-feature:first-child {
+    grid-column: auto;
+    min-height: 195px;
+  }
+
+  .slide--5 .spectrum-feature {
+    min-height: 180px;
+  }
+
+  .slide--5 .spectrum-feature h3 {
+    font-size: 20px;
+  }
+
+  .slide--5 .spectrum-feature p {
+    font-size: 13px;
+  }
+
+  .slide--5 .spectrum-catalog-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .slide--5 .spectrum-summary-intro {
+    align-items: flex-start;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .slide--5 .spectrum-feature {
+    transition: none;
+  }
+
+  .slide--5 .spectrum-feature:hover {
+    transform: none;
+  }
+
+  .slide--5 .spectrum-fill {
+    transition: none;
+  }
+}

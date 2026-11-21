@@ -1,9 +1,10 @@
 import React from 'react';
 import { presentationInfo } from '../data/presentationData';
+import '../styles/slides/slide-01.css';
 
 function Slide01Cover() {
   return (
-    <section className="slide cover-slide">
+    <section className="slide slide--1 cover-slide">
       <div className="cover-glow cover-glow-primary" />
       <div className="cover-glow cover-glow-secondary" />
 
