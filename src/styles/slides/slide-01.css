@@ -28,20 +28,6 @@
     linear-gradient(135deg, #061c1a 0%, #082b27 56%, #061d1b 100%);
 }
 
-.slide--1.cover-slide::before {
-  content: '';
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient(
-    90deg,
-    transparent 0 72%,
-    rgba(101, 221, 197, 0.045) 72% 72.08%,
-    transparent 72.08%
-  );
-}
-
 .slide--1.cover-slide::after {
   display: none;
 }
@@ -105,7 +91,7 @@
   align-items: center;
   gap: 11px;
   color: #eafff8;
-  font-family: Arial, sans-serif;
+  font-family: Tahoma, Arial, sans-serif;
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.16em;
@@ -135,6 +121,7 @@
   position: relative;
   z-index: 2;
   width: min(100%, 980px);
+  width: 100%;
   padding-block: clamp(24px, 4vh, 48px);
   direction: rtl;
   align-self: flex-start;
@@ -188,7 +175,7 @@
 /* Description */
 
 .slide--1 .cover-description {
-  max-width: 720px;
+  /* max-width: 720px; */
   margin: 0;
   color: var(--cover-muted);
   font-size: clamp(19px, 1.55vw, 23px);
@@ -207,10 +194,10 @@
   gap: 6px;
   margin-top: clamp(28px, 4vh, 44px);
   color: rgba(235, 248, 243, 0.52);
-  font-family: Arial, sans-serif;
-  font-size: 11px;
+  font-family: Tahoma, Arial, sans-serif;
+  font-size: 14px;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.09em;
   line-height: 1.8;
   direction: ltr;
   text-align: left;
@@ -221,6 +208,25 @@
   font-weight: 800;
 }
 
+/* Tagline beside the main title — desktop */
+
+@media (min-width: 761px) {
+  .slide--1 .cover-content {
+    position: relative;
+  }
+
+  .slide--1 .cover-tagline {
+    position: absolute;
+    left: 0;
+    top: 43%;
+    width: max-content;
+    max-width: 500px;
+    margin-top: 0;
+    transform: translateY(-50%);
+    align-items: flex-start;
+    text-align: left;
+  }
+}
 /* Team label */
 
 .slide--1 .cover-team-label {
@@ -249,7 +255,7 @@
   flex: 0 0 auto;
   gap: 12px;
   color: #f4fbf8;
-  font-family: Arial, sans-serif;
+  font-family: Tahoma, Arial, sans-serif;
   font-size: 13px;
   font-weight: 700;
   direction: ltr;
@@ -271,14 +277,15 @@
   position: absolute;
   z-index: 0;
   right: -0.04em;
-  bottom: -0.19em;
+  bottom: 0.002em;
   color: rgba(255, 255, 255, 0.022);
-  font-family: Arial, sans-serif;
+  font-family: Tahoma, Arial, sans-serif;
   font-size: clamp(150px, 23vw, 350px);
   font-weight: 900;
-  letter-spacing: -0.08em;
+  letter-spacing: -0.03em;
   line-height: 1;
   pointer-events: none;
+  text-transform: uppercase !important;
   white-space: nowrap;
   direction: ltr;
   user-select: none;
@@ -351,6 +358,7 @@
 
   .slide--1 .cover-watermark {
     font-size: 34vw;
+    bottom: 0.25em;
   }
 }
 
@@ -426,7 +434,7 @@
 
   .slide--1 .cover-watermark {
     font-size: 36vw;
-    bottom: -0.1em;
+    bottom: 0.5em;
   }
 }
 
